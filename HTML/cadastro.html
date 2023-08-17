@@ -8,47 +8,85 @@
     <script src="../CSS/Bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    
- <img class="main-logo" src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png">
-
-
- <div class="main"></div>
-   
- <form onsubmit="refresh(); return false">
-  
-  <div class="logo">
-   <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png">
- </div>
-   
-   <div class="sign-box">
-     <p>sign in</p>
-     <p>sign up</p>
-   </div>
-   
-     <span id="msg"></span>
-   
-   <input type="name" placeholder="Username" class="inp-Box name"/>
-   
-   <br>
-   
-  <input type="password" placeholder="Password" class="inp-Box psd"/>
-   
-   <br>
-   
-   <div class="check">
-     <input type="checkbox" id="check">
-     <label for="check" id="checkMsg">stay signed in</label>
-   </div>
-   
-   <input type="submit" value="sign in" class="inp-Box submit">
-   
-   <p class="forgot-Psd">forgot password?</p>
- </form>
- 
- 
- <p class="note">Please log in to listen to your favorite song...</p>
-   
- 
+    <section class="vh-100" style="background-color: #181616;">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+              <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                  <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+      
+                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
+      
+                      <form class="mx-1 mx-md-4">
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <input type="text" id="form3Example1c" class="form-control" />
+                            <label class="form-label" for="form3Example1c">Nome de Usuário</label>
+                          </div>
+                        </div>
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <input type="email" id="form3Example3c" class="form-control" />
+                            <label class="form-label" for="form3Example3c">Email</label>
+                          </div>
+                        </div>
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <input type="password" id="form3Example4c" class="form-control" />
+                            <label class="form-label" for="form3Example4c">Senha</label>
+                          </div>
+                        </div>
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <input type="password" id="form3Example4cd" class="form-control" />
+                            <label class="form-label" for="form3Example4cd">Repita sua Senha</label>
+                          </div>
+                        </div>
+                        <div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Masculino
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Feminino
+  </label>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+    <label class="form-check-label" for="flexRadioDefault3">
+      Não-Binário
+    </label>
+</div>
+                        <div class="form-check d-flex justify-content-center mb-5">
+                          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                          <label class="form-check-label" for="form2Example3">
+                            Concordo com todos os <a href="#!">Termos de Serviço</a>
+                          </label>
+                        </div>
+      
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <button type="button" class="btn btn-primary btn-lg">Register</button>
+                        </div>
+      
+                      </form>
+      
+                    </div>
+                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+      
+                      <img src="data:image/png;base64,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"
+                        class="img-fluid" alt="Sample image">
       
                     </div>
                   </div>
