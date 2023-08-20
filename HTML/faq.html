@@ -3,11 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Frequently Asked Questions - FAQ</title>
+    <style>
+        .custom-backgorund{
+            background-color: #263A29;
+        }
+    </style>
     <link href="../CSS/Bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
-    <script src="../CSS/Bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-    
+
+<body class="custom-backgorund">
+    <header>
+        <div class="container mt-5 px-4">
+            <div class="row">
+                <div class="col-2">
+                    <img src="../Imgs/SpotifyLogoWhite.png" alt="Spotify Logo" width="160" height="50">
+                </div>
+                <div class="col-8 me-5">
+                    <input type="text" class="form-control text-center mt-5" placeholder="Search Question">
+                </div>
+                <div class="col-1 mt-2">
+                    <nav>
+                        <a class="text-light">Login/Cadastro</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="FAQ" class="py-5">
+            <h2 class=" text-center text-light">Frequently Asked Questions</h2>
+            <h3 class="mb-5 pb-5 text-center text-light">FAQ</h3>
+                
+
+            <div class="container">           
+
+                <div
+                    class="accordion"
+                    id="accordionPanelsStayOpenExample"
+                >
+                    <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button 
+                            class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#panelsStayOpen-collapseOne" 
+                            aria-expanded="true" 
+                            aria-controls="panelsStayOpen-collapseOne"        
+                        >
+                        O que é o Premium Duo e como funciona?
+                        </button>
+                    </h2>
+                    <div
+                        id="panelsStayOpen-collapseOne"
+                        class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            É uma subscrição com desconto para duas pessoas que vivem juntas. Cada pessoa no plano obtém a sua própria conta Premium, para que ninguém partilhe uma palavra-passe e todos mantenham as suas próprias músicas e listas de reprodução guardadas.
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo"
+                        >
+                        Posso atualizar para o plano Premium para Família ou para um plano Duo se estiver um usuário de outro país?
+                        </button>
+                    </h2>
+                    <div
+                        id="panelsStayOpen-collapseTwo"
+                        class="accordion-collapse collapse"
+                    >
+                        <div class="accordion-body">
+                            Todos os membros de um plano Premium para Família ou Duo devem residir no mesmo endereço físico. Infelizmente, se estiver um usuário estrangeiro e pretender iniciar um destes planos e convidar membros, não será possível.	
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree"
+                        >
+                        Como reproduzir música com a Alexa?
+                        </button>
+                    </h2>
+                    <div
+                        id="panelsStayOpen-collapseThree"
+                        class="accordion-collapse collapse"
+                    >
+                        <div class="accordion-body">
+                            Por predefinição, os altifalantes Alexa, como o Amazon Echo, irão recorrer primeiro ao seu próprio serviço de música, pelo que terá de ligar o Spotify ao Alexa e certificar-se de que o selecciona como o seu leitor de música predefinido.
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseFour"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseFour"
+                        >
+                        Como posso cancelar a minha assinatura?
+                        </button>
+                        </h2>
+                        <div 
+                            id="panelsStayOpen-collapseFour"
+                            class="accordion-collapse collapse"
+                        >
+                            <div class="accordion-body">
+                                Cancele o seu plano Premium em qualquer altura na página da sua conta.
+
+                                Inicie sessão em spotify.com/account. 
+                                Em Seu plano, clique em ALTERAR PLANO.
+                                Desloque-se até Spotify Free e clique em CANCELAR PREMIUM.
+                                O seu plano Premium mantém-se até à próxima data de faturação e, em seguida, a sua conta passa a ser gratuita. 
+
+                                Mantém as suas listas de reprodução e música guardada quando a sua conta é gratuita. Também pode continuar a iniciar sessão e a jogar com anúncios.
+
+                                
+
+                                Atenção - se cancelar o seu desconto de estudante, não o poderá aplicar a outra conta até que o período de verificação de 12 meses expire.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="bg-black"> 
+        <div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+            <img src="../Imgs/SpotifyLogoWhite.png" alt="Spotify Logo White" class="mx-auto" width="330" height="100">
+        </div>
+        
+    </footer>
+
+    <script src="../CSS/Bootstrap/js/bootstrap.bundle.min.js"defer></script>
 </body>
 </html>
