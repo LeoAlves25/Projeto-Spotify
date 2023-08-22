@@ -1,0 +1,447 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,900;1,9..40,400;1,9..40,500;1,9..40,700&family=Poppins:wght@500;600&display=swap');
+
+:root {
+    
+    --main-font-color: #a7a7a7;
+    --main-font-color-hover: #efefef;
+    
+    --card-bg: #181818;
+    --card-bg-hover: #282828;
+
+  }
+body{
+    font-family: 'DM Sans', sans-serif;
+
+    background: linear-gradient(180deg, #222 0%, #1F1F1F 11.64%, #171717 25.66%, #161616 32.94%,
+     #151515 35.98%, #131313 44.89%, #121212 55.22%, #121212 75.34%, #121212 85.45%);
+    height: 100vh;
+    width: 100%;
+    color: var(--main-font-color)
+    }
+
+::-webkit-scrollbar{
+    width: 10px;
+    max-width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #27272797;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #272727;
+}
+.Home-sidebar{
+    background-color: #000000;
+    padding: 10px;
+    width: 370px;
+    height: 100%;
+    float: left;
+    padding-bottom: 290px;
+}
+
+
+.Home-sidebar .sidebar-navegacao,.sidebar-biblioteca{
+    background-color: #121212;
+    padding: 20px;
+    margin: 8px 0 0 0;
+    font-weight: bold;
+    border-radius: 5px;    
+}
+
+
+.sidebar-navegacao a{
+    font-size: 17px;
+    text-decoration: none;
+    list-style: none;
+    color: var(--main-font-color);
+    transition: color 0.3s;
+}
+.sidebar-navegacao a:hover{
+    color: var(--main-font-color-hover);  
+}
+.sidebar-navegacao a.sidebar-menu-active{
+    color: white;
+}
+
+.sidebar-navegacao span {
+    margin-left: 10px;
+}
+.sidebar-navegacao li:first-child{
+    margin-bottom: 20px;
+}
+
+
+.sidebar-biblioteca{
+        height: 100%;
+        overflow: hidden;
+
+}
+
+.sidebar-biblioteca .biblioteca{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--main-font-color);
+    transition: color 0.3s;
+    margin-bottom: 15px;
+}
+.sidebar-biblioteca h3{
+    font-size: 17px;
+    margin-left:10px ;
+
+
+}
+
+
+.sidebar-biblioteca .biblioteca:hover{
+    cursor: pointer;
+    color: var(--main-font-color-hover);    
+}
+.Home-sidebar i{
+font-size: 20px;
+
+}
+
+/* SIDEBAR - PLAYLIST */
+
+.sidebar-biblioteca .sidebar-playlists{
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+}
+.sidebar-biblioteca .sidebar-playlists:hover{
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.sidebar-biblioteca .sidebar-menu-item{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.sidebar-biblioteca .sidebar-menu-item:hover{
+    border-radius: 7px;
+    background-color: #ffffff11;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.sidebar-biblioteca .sidebar-menu-item span{
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    padding: 0 14px;
+
+}
+.sidebar-biblioteca .sidebar-menu-item img{
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+/* CONTEUDO DO MEIO CIMA */
+
+.main-content{
+    background-color: #000000;
+    padding: 10px 10px 10px 0px;
+    height: 100%;
+    padding-bottom: 177px;
+}
+
+.main-conteiner{
+    background: linear-gradient(180deg, rgba(79,26,80,1) 7%, rgba(18,18,18,1) 39%);
+    border-radius: 10px;
+    margin: 8px 0 0 0;
+    overflow-y: scroll ;
+    height: 100%;
+}
+
+.topbar{
+    background-color: #00000000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.topbar button {
+    border:none;
+    text-decoration: none;
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.topbar button i{
+    color: var(--main-font-color);
+    font-size: 30px;
+}
+.topbar .navbar{
+    display: flex;
+}
+
+.topbar .navbar ul{
+    display: flex;
+}
+
+
+.topbar .navbar li {
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0 23px 0 23px;
+    background-color: #000000;
+    cursor: pointer;
+    transform: scale(1);
+}
+
+.topbar .navbar li:hover {
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0px 23px;
+    background-color: #000000;
+    cursor: pointer;
+    transform: scale(1.04);
+}
+.topbar .navbar li:first-child {
+    background-color: #ffffff;
+}
+
+.topbar .navbar li a{
+    text-decoration:none; 
+    color: rgb(255, 255, 255);   
+}
+.topbar .navbar li:first-child a{
+    text-decoration:none; 
+    color: rgb(0, 0, 0);   
+}
+
+.topbar .navbar li,button{
+    margin-right: 10px;
+}
+
+
+.Home-main{
+    width: calc(100%-250px);
+    height: 100%;
+    padding: 15px 20px;
+    
+}
+
+.main-row{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    float: left;
+    overflow-x: scroll;
+}
+
+.main-wrapper{
+    padding-bottom: 390px;
+}
+
+.main-row-title{
+    width: 100%;
+}
+
+.main-row-title h2{
+    color: white;
+}
+
+.main-col{
+    
+    cursor: pointer;
+    width: 12%;
+    margin-right: 1%;
+    margin-top: 20px;
+    background-color: #181818;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.3s;
+    min-width: 170px;
+    max-height: 300px;
+}
+
+.main-col:hover{
+    cursor: pointer;
+    width: 12%;
+    margin-right: 1%;
+    margin-top: 20px;
+    background-color: var(--card-bg-hover);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.main-col h3{
+    font-size: 18px;
+    color: white;
+    margin: 8px 0;
+}
+.main-col p{
+    color: var(--main-font-color);
+    margin: 8px 0;
+    font-size: 13px;
+    text-align: left;
+}
+.main-row img{
+    width: 100%;
+}
+
+
+
+
+
+/* PLAYER */
+
+.player-content{
+    width: 100%;
+    
+    background-color: #000000;
+    position: fixed;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.playerCard{
+    width: 20%;
+    display: flex;
+}
+
+.playerCard img{
+    border-radius: 8px;
+    max-width: 70px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.playerCard-info {
+    color: white;
+    padding: 10px;
+}
+
+.playerCard-info span{
+    margin-top: 15px;
+    color: var(--main-font-color);
+}
+
+.playerControl{
+    width: 60%;
+    text-align: center;
+}
+
+.playerControl-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.playerControl-buttons a{
+    color: rgb(255, 255, 255);
+    margin: 8px 15px;
+    font-size: 18px;
+
+}
+
+.playerControl-buttons .playMusic,.stopMusic{
+    font-size: 30px;
+}
+.playerControl-progressBar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:10px ;
+}
+
+
+.playerControl-progressBar span{
+    margin-left: 10px;
+    color: var(--main-font-color);
+    font-size: 12px;
+}
+.playerControl-progressBar span:first-child{
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+.playerControl-progressBar-outside{
+    width: 100%;
+    max-width: 600px;
+    height: 5px;
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+    background-color: #272727;
+}
+
+.playerControl-progressBar-inside{
+    position: absolute;
+    left:0;
+    top: 0;
+    width:50%;
+    height: 5px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.playerControl-volume{
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerControl-volume-progressBar-outside{
+    margin-left: 5px;
+    width: 100%;
+    max-width: 100px;
+    height: 4px;
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+    background-color: #272727;
+}
+.playerControl-volume-progressBar-inside{
+    position: absolute;
+    left:0;
+    top: 0;
+    width:90%;
+    height: 4px;
+    border-radius: 8px;
+    background-color: white;
+}
