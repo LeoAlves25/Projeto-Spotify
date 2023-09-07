@@ -1,0 +1,24 @@
+body{
+    background-color: #181616 !important;
+}
+
+.card .text-bg-dark {
+    border-radius: 25px;
+    background-color: #363535;
+}
+
+button{
+    background-color: #1DB954;
+}
+
+#iconPassword{
+    cursor: pointer;
+}
+
+img{
+    border-radius: 20%;
+}
+
+a{
+    color: #1DB954 !important;
+}
