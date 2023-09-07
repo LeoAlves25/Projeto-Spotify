@@ -28,7 +28,8 @@ export default function Home() {
                           <a class="nav-link text-success" href="../HTML/faq.html" >FAQ</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-success" href="../HTML/cadastro.html" >Registrar</a>
+                        < Link to="/cadastro" class="nav-link text-success">Registrar</Link>
+                          
                       </li>
                       <li class="nav-item">
                         <Link to="/login" class="nav-link text-success">Login</Link>
