@@ -14,7 +14,7 @@ export default function Login() {
   }
 
   return (
-    <section class="h-100">
+    <section class="h-100 d-flex align-items-center">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-lg-12 col-xl-11">

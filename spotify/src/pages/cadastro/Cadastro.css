@@ -1,5 +1,6 @@
 .card .text-bg-dark{
-    border-radius: 25px; background-color: #363535;
+    border-radius: 25px; 
+    background-color: #363535;
 }
 #iconPassword, #iconRepeatPassword{
     cursor: pointer;

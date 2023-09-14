@@ -16,3 +16,17 @@ code {
   height: 100vh !important;
   width: 100vw !important;
 }
+
+body::-webkit-scrollbar{
+  border-radius: 8px;
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track{
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb{
+  border-radius: 8px;
+  background: #4e4e4e;
+}
