@@ -1,5 +1,4 @@
 import "./Login.css";
-
 import img from "../../IMG/logo-spotify.png";
 import { Link } from "react-router-dom";
 

@@ -1,0 +1,19 @@
+
+[
+ {
+    "Enuciado":"O que é o Premium Duo e como funciona?",
+    "Resposta":"É uma subscrição com desconto para duas pessoas que vivem juntas. Cada pessoa no plano obtém a sua própria conta Premium, para que ninguém partilhe uma palavra-passe e todos mantenham as suas próprias músicas e listas de reprodução guardadas."
+ },
+ {
+    "Enuciado":"Posso atualizar para o plano Premium para Família ou para um plano Duo se estiver um usuário de outro país?",
+    "Resposta":"Todos os membros de um plano Premium para Família ou Duo devem residir no mesmo endereço físico. Infelizmente, se estiver um usuário estrangeiro e pretender iniciar um destes planos e convidar membros, não será possível." 
+ },
+ {
+    "Enuciado":"Como reproduzir música com a Alexa?",
+    "Resposta":"Por predefinição, os altifalantes Alexa, como o Amazon Echo, irão recorrer primeiro ao seu próprio serviço de música, pelo que terá de ligar o Spotify ao Alexa e certificar-se de que o selecciona como o seu leitor de música predefinido." 
+ },
+ {
+    "Enuciado":"Como posso cancelar a minha assinatura?",
+    "Resposta":"Cancele o seu plano Premium em qualquer altura na página da sua conta.Inicie sessão em spotify.com/account. Em Seu plano, clique em ALTERAR PLANO. Desloque-se até Spotify Free e clique em CANCELAR PREMIUM. O seu plano Premium mantém-se até à próxima data de faturação e, em seguida, a sua conta passa a ser gratuita. Mantém as suas listas de reprodução e música guardada quando a sua conta é gratuita. Também pode continuar a iniciar sessão e a jogar com anúncios. Atenção - se cancelar o seu desconto de estudante, não o poderá aplicar a outra conta até que o período de verificação de 12 meses expire." 
+ }
+]

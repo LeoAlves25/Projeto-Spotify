@@ -25,11 +25,10 @@ export default function Home() {
                           <a class="nav-link active text-success" aria-current="page" href="" >Inicio</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-success" href="../HTML/faq.html" >FAQ</a>
+                          <Link to="/faq" class="nav-link text-success">FAQ</Link>
                       </li>
                       <li class="nav-item">
-                        < Link to="/cadastro" class="nav-link text-success">Registrar</Link>
-                          
+                        < Link to="/cadastro" class="nav-link text-success">Registrar</Link>                          
                       </li>
                       <li class="nav-item">
                         <Link to="/login" class="nav-link text-success">Login</Link>
