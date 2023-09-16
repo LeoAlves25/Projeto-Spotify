@@ -4,6 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Nav from "../../components/Nav";
 import data from "../../resources/FAQ.json"
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 export default function Faq() {
     return (
@@ -65,13 +66,9 @@ export default function Faq() {
                 </section>
             </main>
 
-            <footer class="bg-black footer ">
-                <div class="d-flex justify-content-center align-items-center p-3">
-                    <Link to="/">
-                        <img src={img} alt="Spotify Logo" class="mx-auto" width="330" height="100" />
-                    </Link>
-                </div>
-            </footer>
+            <div>
+                <Footer />
+            </div>
         </>
     );
 }
