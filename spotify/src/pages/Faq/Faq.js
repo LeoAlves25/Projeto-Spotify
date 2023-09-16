@@ -1,12 +1,16 @@
 import "./Faq.css";
 import img from "../../IMG/SpotifyLogoWhite.png";
 import Accordion from 'react-bootstrap/Accordion';
+import Nav from "../../components/Nav";
 import data from "../../resources/FAQ.json"
 import { Link } from "react-router-dom";
 
 export default function Faq() {
     return (
-        <>
+        <>  
+            <div>
+                <Nav />
+            </div>
             <header>
                 <div class="container mt-5 px-4">
                     <div class="row justify-content-around">
