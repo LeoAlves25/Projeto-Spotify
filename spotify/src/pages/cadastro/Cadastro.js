@@ -17,7 +17,7 @@ export default function cadastro() {
     togglePassword.classList.toggle("bi-eye");
   }
   return (
-    <section class="h-100 p-3">
+    <section class="h-100 p-5">
       <div class="container">
         <div class="row d-flex justify-content-center ">
           <div class="col-lg-12 col-xl-11">
@@ -185,7 +185,7 @@ export default function cadastro() {
 
                   <div class="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center justify-content-center order-1 order-lg-2 mb-md-3 mb-sm-3">
                     <Link to="/">
-                      <img src={img} class="img-fluid" alt="Sample image" />
+                      <img src={img} class="img-fluid" alt="" />
                     </Link>
                   </div>
                 </div>

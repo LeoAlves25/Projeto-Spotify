@@ -12,7 +12,7 @@ export default function Faq() {
             <div>
                 <Nav />
             </div>
-            <header>
+            {/* <header>
                 <div class="container mt-5 px-4">
                     <div class="row justify-content-around">
                         <div class="col-lg-2">
@@ -32,7 +32,7 @@ export default function Faq() {
                         </div>
                     </div>
                 </div>
-            </header>
+            </header> */}
 
             <main>
                 <div class="row justify-content-center">
@@ -65,10 +65,6 @@ export default function Faq() {
 
                 </section>
             </main>
-
-            <div>
-                <Footer />
-            </div>
         </>
     );
 }

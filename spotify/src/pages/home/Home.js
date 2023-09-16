@@ -4,13 +4,11 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer';
 
 import img2 from '../../IMG/spotify-logo.png';
-// import img2 from './IMG/spotify-logo.png';
 
 export default function Home() {
     return (
         <div class="bg_gradiant">
             <Nav />
-            
             <section class="container main_content">
                 <div class="">
                     <div class="row justify-content-around mg-1">
@@ -44,8 +42,10 @@ export default function Home() {
                 </div>
             </section>
 
-            <Footer />
+            
 
         </div>
+        
+        
     )
 }

@@ -16,7 +16,7 @@ export default function Nav(){
                     <div class="collapse navbar-collapse justify-content-end fw-bolder" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <Link to="/home" class="nav-link active text-success">Inicio</Link>
+                                <Link to="/" class="nav-link active text-success">Inicio</Link>
                             </li>
                             <li class="nav-item">
                                 <Link to="/faq" class="nav-link text-success">FAQ</Link>

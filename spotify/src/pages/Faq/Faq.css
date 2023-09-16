@@ -7,3 +7,7 @@ body {
     overflow-x: hidden;
     background-color: #263A29 !important; 
 }
+
+.Faq {
+    height: 100vh;
+}
