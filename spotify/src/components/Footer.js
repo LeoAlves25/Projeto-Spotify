@@ -3,9 +3,22 @@ import { Link } from 'react-router-dom';
 import img1 from '../IMG/icons8-facebook.svg';
 import img2 from '../IMG/icons8-insta.svg';
 import img3 from '../IMG/icons8-twitter.svg';
-export default function Footer() {
+import { useLocation } from 'react-router-dom'
+export default function Footer(props) {
+
+    const location = useLocation();
+    
     return (
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 bg-black">
+          
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 bg-black " style={{
+                visibility: location.pathname==="/principal" ? 'hidden' : 'visible', 
+                height:location.pathname ==="/principal" ? '0' : 'auto',
+                margin:location.pathname ==="/principal" ? '0' : 'auto',
+                padding:location.pathname ==="/principal" ? '0' : 'auto',
+                
+            }} >
+                
                 <div class="col-md-4 d-flex align-items-center">
                     <Link to="#"  class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                         <svg class="bi" width="30" height="24"></svg>

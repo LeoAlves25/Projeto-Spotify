@@ -6,7 +6,8 @@ import Login from './pages/login/Login';
 import Cadastro from './pages/cadastro/Cadastro'; 
 import Faq from './pages/Faq/Faq';
 import Footer from '../src/components/Footer';
-// import Principal from './pages/principal/Principal';
+import Principal from './pages/principal/index';
+import Footer2 from './components/Footer2';
 
 function App() {
   return (
@@ -17,10 +18,10 @@ function App() {
             <Route path="login" element={<Login />}/>
             <Route path="cadastro" element={<Cadastro />} />
             <Route path="faq" element={<Faq />} />
-            {/* <Route path="principal" element={<Principal />} /> */}
+            <Route path="principal" element={<Principal />} /> 
         </Routes>
     </div>
-    <Footer />
+    <Footer2 />
     </>
   );
 }

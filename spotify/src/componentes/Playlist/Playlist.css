@@ -1,0 +1,36 @@
+.playlist{
+    width: 100%;
+    text-align: left;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    border-radius: 8px;
+}
+.playlist:hover{
+    background-color: #242424;
+    cursor: pointer;
+}
+
+.playlist__img{
+    width: 70px;
+    height: 70px;
+    border-radius: 0.5em;
+}
+.playlist__name{
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.playlist__userName{
+    margin: 0;
+    color: #b1b1b1;
+    font-size: 1rem;
+}
+.playlist__container-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
+}

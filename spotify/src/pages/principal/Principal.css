@@ -1,0 +1,17 @@
+.principal{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: green;
+    
+}
+.principal__body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.Principal{
+    height: 100vh;
+}
