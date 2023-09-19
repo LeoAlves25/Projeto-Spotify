@@ -5,7 +5,6 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login'; 
 import Cadastro from './pages/cadastro/Cadastro'; 
 import Faq from './pages/Faq/Faq';
-import Footer from '../src/components/Footer';
 import Principal from './pages/principal/index';
 import Footer2 from './components/Footer2';
 
