@@ -1,17 +1,20 @@
-.card .text-bg-dark{
-    border-radius: 25px; 
+.card .text-bg-dark {
+    border-radius: 25px;
     background-color: #363535;
 }
-#iconPassword, #iconRepeatPassword{
+
+#iconPassword,
+#iconRepeatPassword {
     cursor: pointer;
 }
-button{
+
+button {
     background-color: #1DB954;
 }
-img{
+
+img {
     border-radius: 20%;
 }
-
-.Cadastro{
+.Cadastro {
     height: 100vh;
 }

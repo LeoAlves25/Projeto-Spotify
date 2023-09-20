@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #181616 !important;
 }
 
@@ -7,18 +7,22 @@ body{
     background-color: #363535;
 }
 
-button{
+button {
     background-color: #1DB954;
 }
 
-#iconPassword{
+#iconPassword {
     cursor: pointer;
 }
 
-img{
+img {
     border-radius: 20%;
 }
 
-a{
+a {
     color: #1DB954 !important;
+}
+
+.Login {
+    height: 100vh;
 }

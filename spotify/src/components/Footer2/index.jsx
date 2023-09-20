@@ -1,19 +1,13 @@
 
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom'
 import './Footer2.css';
 
 export default function Footer(props) {
-
-    const location = useLocation();
     
     return (
           
 
-            <footer class="footer" style={{
-                display: location.pathname==="/principal" ? 'none' : 'flex', 
-                
-            }} >
+            <footer class="footer" >
                 
                 <div class="col-md-4 d-flex align-items-center">
                  

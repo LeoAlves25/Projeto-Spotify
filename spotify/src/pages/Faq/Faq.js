@@ -1,70 +1,51 @@
 import "./Faq.css";
-import img from "../../IMG/SpotifyLogoWhite.png";
-import Accordion from 'react-bootstrap/Accordion';
+import Accordion from "react-bootstrap/Accordion";
 import Nav from "../../components/Nav";
-import data from "../../resources/FAQ.json"
-import { Link } from "react-router-dom";
-import Footer from "../../components/Footer";
+import Footer2 from "../../components/Footer2/";
+import data from "../../resources/FAQ.json";
 
 export default function Faq() {
-    return (
-        <>  
+  return (
+    <>
+      <div>
+        <Nav />
+      </div>
+
+      <main className="h-100">
+        <div className="row justify-content-center">
+          <div className="col-lg-10 mt-5 justify-content-center">
+            <label className="col-8">
+              <input
+                type="text"
+                className="form-control text-center"
+                placeholder="Pesquisar Duvida"
+                name="pesquisarDuvida"
+              />
+            </label>
+          </div>
+        </div>
+        <section id="FAQ" className="py-5">
+          <h2 className=" text-center text-light">
+            Frequently Asked Questions
+          </h2>
+          <h3 className="mb-5 pb-5 text-center text-light">FAQ</h3>
+
+          <div className="container">
             <div>
-                <Nav />
+              <Accordion>
+                {data.map((el, idx) => (
+                  <Accordion.Item eventKey={idx}>
+                    <Accordion.Header>{data[idx].Enuciado}</Accordion.Header>
+                    <Accordion.Body>{data[idx].Resposta}</Accordion.Body>
+                  </Accordion.Item>
+                ))}
+              </Accordion>
             </div>
-            {/* <header>
-                <div class="container mt-5 px-4">
-                    <div class="row justify-content-around">
-                        <div class="col-lg-2">
-                            <div href="../HTML/index.html">
-                                <Link to="/">
-                                    <img src={img} alt="Spotify Logo" width="160" height="50" />
-                                </Link>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 mt-2">
-                            <div>
-                                <div class="row">
-                                    <Link to="/login" class="text-black fw-bolder col-5 btn btn-light me-1">Login</Link>
-                                    <Link to="/cadastro" class="text-black fw-bolder col-6 btn btn-light ms-2">Cadastro</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header> */}
+          </div>
+        </section>
+      </main>
 
-            <main>
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 mt-5 justify-content-center">
-                        <label class="col-8">
-                            <input type="text" class="form-control text-center" placeholder="Pesquisar Duvida" name="pesquisarDuvida" />
-                        </label>
-                    </div>
-
-                </div>
-                <section id="FAQ" class="py-5">
-                    <h2 class=" text-center text-light">Frequently Asked Questions</h2>
-                    <h3 class="mb-5 pb-5 text-center text-light">FAQ</h3>
-
-                    <div class="container">
-                        <div>
-                            <Accordion>
-                                {data.map((el, idx) => (
-                                    <Accordion.Item eventKey={idx}>
-                                        <Accordion.Header>{data[idx].Enuciado}</Accordion.Header>
-                                        <Accordion.Body>
-                                            {data[idx].Resposta}
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                ))}
-                            </Accordion>
-                        </div>
-                    </div>
-
-
-                </section>
-            </main>
-        </>
-    );
+      <Footer2 />
+    </>
+  );
 }
