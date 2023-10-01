@@ -34,7 +34,7 @@ export default function Faq() {
             <div>
               <Accordion>
                 {data.map((el, idx) => (
-                  <Accordion.Item eventKey={idx}>
+                  <Accordion.Item key={idx} eventKey={idx}>
                     <Accordion.Header>{data[idx].Enuciado}</Accordion.Header>
                     <Accordion.Body>{data[idx].Resposta}</Accordion.Body>
                   </Accordion.Item>
