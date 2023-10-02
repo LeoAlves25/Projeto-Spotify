@@ -1,0 +1,181 @@
+[{
+    "id": 1,
+    "nome_playlist": "Playlist 1",
+    "descricao": "Uma coleção das minhas músicas preferidas",
+    "criador": "Seu Nome",
+    "capa": "",
+    "musicas": [
+      {
+        "id": 1,
+        "titulo": "Música 1",
+        "artista": "Artista 1",
+        "duracao": "3:45",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 2,
+        "titulo": "Música 2",
+        "artista": "Artista 2",
+        "duracao": "4:15",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 3,
+        "titulo": "Música 3",
+        "artista": "Artista 3",
+        "duracao": "3:30",
+        "nome_arquivo_audio": "musica3.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nome_playlist": "playlist 2",
+    "descricao": "Uma coleção das minhas músicas preferidas",
+    "criador": "Seu Nome",
+    "capa": "minha_playlist.jpg",
+    "musicas": [
+      {
+        "id": 1,
+        "titulo": "Música 1",
+        "artista": "Artista 1",
+        "duracao": "3:45",
+        "nome_arquivo_audio": "musica1.mp3"
+      },
+      {
+        "id": 2,
+        "titulo": "Música 2",
+        "artista": "Artista 2",
+        "duracao": "4:15",
+        "nome_arquivo_audio": "musica2.mp3"
+      },
+      {
+        "id": 3,
+        "titulo": "Música 3",
+        "artista": "Artista 3",
+        "duracao": "3:30",
+        "nome_arquivo_audio": "musica3.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nome_playlist": "Playlist 3",
+    "descricao": "Uma coleção das minhas músicas preferidas",
+    "criador": "Seu Nome",
+    "capa": "",
+    "musicas": [
+      {
+        "id": 1,
+        "titulo": "Música 1",
+        "artista": "Artista 1",
+        "duracao": "3:45",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 2,
+        "titulo": "Música 2",
+        "artista": "Artista 2",
+        "duracao": "4:15",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 3,
+        "titulo": "Música 3",
+        "artista": "Artista 3",
+        "duracao": "3:30",
+        "nome_arquivo_audio": "musica3.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nome_playlist": "Playlist 4",
+    "descricao": "Uma coleção das minhas músicas preferidas",
+    "criador": "Seu Nome",
+    "capa": "",
+    "musicas": [
+      {
+        "id": 1,
+        "titulo": "Música 1",
+        "artista": "Artista 1",
+        "duracao": "3:45",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 2,
+        "titulo": "Música 2",
+        "artista": "Artista 2",
+        "duracao": "4:15",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 3,
+        "titulo": "Música 3",
+        "artista": "Artista 3",
+        "duracao": "3:30",
+        "nome_arquivo_audio": "musica3.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nome_playlist": "Playlist 5",
+    "descricao": "Uma coleção das minhas músicas preferidas",
+    "criador": "Seu Nome",
+    "capa": "",
+    "musicas": [
+      {
+        "id": 1,
+        "titulo": "Música 1",
+        "artista": "Artista 1",
+        "duracao": "3:45",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 2,
+        "titulo": "Música 2",
+        "artista": "Artista 2",
+        "duracao": "4:15",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 3,
+        "titulo": "Música 3",
+        "artista": "Artista 3",
+        "duracao": "3:30",
+        "nome_arquivo_audio": "musica3.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nome_playlist": "Playlist 6",
+    "descricao": "Uma coleção das minhas músicas preferidas",
+    "criador": "Seu Nome",
+    "capa": "",
+    "musicas": [
+      {
+        "id": 1,
+        "titulo": "Música 1",
+        "artista": "Artista 1",
+        "duracao": "3:45",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 2,
+        "titulo": "Música 2",
+        "artista": "Artista 2",
+        "duracao": "4:15",
+        "nome_arquivo_audio": "caminho arquivo"
+      },
+      {
+        "id": 3,
+        "titulo": "Música 3",
+        "artista": "Artista 3",
+        "duracao": "3:30",
+        "nome_arquivo_audio": "musica3.mp3"
+      }
+    ]
+  }
+]
