@@ -87,9 +87,17 @@ export default function Cadastro() {
       inputFields.emailUsuario,
       inputFields.senhaUsuario
     )
+
+    if(usuarios.find(user => user.email === usuario.email)){
+      toast.error("Email já cadastrado!",{
+        theme: "colored",
+      });
+      return;
+    }
+
     setUsuarios([...usuarios, usuario]);
 
-    toast.success('Usuário cadastrodo com sucesso!', {
+    toast.success('Usuário cadastrado com sucesso!', {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
