@@ -1,8 +1,12 @@
 import './bodyPrincipal.css'
 import HeaderPrincipal from '../HeaderPrincipal/'
 import PlaylistCard from '../PlaylistCard/'
+import  playlists  from '../../resources/playlists.json'
+
 const bodyPrincipal = () => {
 
+    const playlistsData = playlists
+    console.log(playlists[2].id)
     return(
         <div className="bodyPrincipal">
             <div className="bodyPrincipal__content">
@@ -12,28 +16,15 @@ const bodyPrincipal = () => {
                     <section className='bodyprincipal__main-content'>
                         <h2>Playlists</h2>
                         <div className="wrapperPlaylist">
-                            <PlaylistCard img="IMG/123Segundos.jpg" nome="123 Segundos"/>
-                            <PlaylistCard img="IMG/ParaTodasAsPess.jpg" nome="Para todas as pessoas"/>
-                            <PlaylistCard img="IMG/CafeDaManha.jpg" nome="Café Da Manha"/>
+                            {playlists.map((playlist) => {
+                                return(
+                                    <PlaylistCard img={playlist.capa} nome={playlist.nome_playlist} />
+                                )
+                            })}
 
-                            <PlaylistCard />
-                    
                         </div>
                     </section>
-                    <section className='bodyprincipal__main-content'>
-                        <h2>Playlists</h2>
-                        <div className="wrapperPlaylist">
-                            <PlaylistCard img="IMG/CafeDaManha.jpg" nome="Café Da Manha"/>
-
-                            <PlaylistCard img="IMG/123Segundos.jpg" nome="123 Segundos"/>
-                            <PlaylistCard img="IMG/ParaTodasAsPess.jpg" nome="Para todas as pessoas"/>
-
-
-                            <PlaylistCard />
-                            <PlaylistCard />
-                            <PlaylistCard />
-                        </div>
-                    </section>
+                            
                 </div>
                 
             </div>
