@@ -10,9 +10,7 @@ const Principal = () => {
                 <Sidebar />
                 <Body />
             </div>
-            <div className="player">
-                <Player />  
-            </div>
+          
         </div>
     )
 }

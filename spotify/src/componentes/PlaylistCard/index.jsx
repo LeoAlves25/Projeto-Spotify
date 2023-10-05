@@ -11,7 +11,7 @@ const PlaylistCard = (props) =>{
             )}
 
                 <h3 className='playlistCard__title'>{props.nome}</h3>
-                <p className='playlistCard__descricao'>Sem descrição</p>
+                <p className="playlistCard__descricao">{props.desc ? props.desc : "Sem descrição"}</p>
 
         </div>
     )
