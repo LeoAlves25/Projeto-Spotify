@@ -6,7 +6,7 @@ import Login from "./pages/login/Login";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Faq from "./pages/Faq/Faq";
 import Principal from "./pages/principal/index";
-
+import TelaProvisoria from "./pages/TelaProvisoria";
 function App() {
   return (
     <>
@@ -17,6 +17,7 @@ function App() {
           <Route path="cadastro" element={<Cadastro />} />
           <Route path="faq" element={<Faq />} />
           <Route path="principal" element={<Principal />} />
+          <Route path="playlists/:id" element={<TelaProvisoria />} />
         </Routes>
       </div>
     </>

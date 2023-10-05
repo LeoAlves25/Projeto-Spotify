@@ -3,10 +3,10 @@ import HeaderPrincipal from '../HeaderPrincipal'
 import PlaylistCard from '../PlaylistCard'
 import  playlists  from '../../resources/playlists.json'
 
-const bodyPrincipal = () => {
+const bodyPrincipal = (props) => {
 
     return(
-        <div className="bodyPrincipal">
+        <div className="bodyPrincipal" style={{ height: props.altura }}>
             <div className="bodyPrincipal__content">
                 <HeaderPrincipal />
 
@@ -16,7 +16,7 @@ const bodyPrincipal = () => {
                         <div className="wrapperPlaylist">
                             {playlists.map((playlist) => {
                                 return(
-                                    <PlaylistCard img={playlist.capa} nome={playlist.nome_playlist} desc={playlist.descricao} />
+                                    <PlaylistCard privacidade={"publica"} id={playlist.id} img={playlist.capa} nome={playlist.nome_playlist} desc={playlist.descricao} />
                                 )
                             })}
 
@@ -27,7 +27,7 @@ const bodyPrincipal = () => {
                         <div className="wrapperPlaylist">
                             {playlists.map((playlist) => {
                                 return(
-                                    <PlaylistCard img={playlist.capa} nome={playlist.nome_playlist} desc={playlist.criador}/>
+                                    <PlaylistCard privacidade={"privada"} id={playlist.id} img={playlist.capa} nome={playlist.nome_playlist} desc={playlist.criador}/>
                                 )
                             })}
 

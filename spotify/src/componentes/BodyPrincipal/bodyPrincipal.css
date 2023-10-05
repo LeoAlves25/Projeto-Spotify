@@ -1,6 +1,5 @@
 .bodyPrincipal {
     background-color: #000000;
-    height:100vh;
     width: 80%;
     box-sizing: border-box;
     padding: 1em 1em 1em 0.5em;
@@ -38,7 +37,10 @@
     align-items: start;
     height: 100%;
     width: 100%;
-    margin-bottom: 1.5rem;
+}
+.bodyprincipal__main-content:first-child{
+    margin-bottom: 5em;
+   
 }
 
 

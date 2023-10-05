@@ -7,8 +7,8 @@ const Principal = () => {
     return (
         <div className="principal">
             <div className="principal__body">
-                <Sidebar />
-                <Body />
+                <Sidebar altura='100vh'/>
+                <Body altura='100vh'/>
             </div>
           
         </div>

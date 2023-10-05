@@ -1,15 +1,17 @@
 import React from 'react'   
 import './Sidebar.css'
 import Playlist from '../Playlist/'
-const Sidebar = () =>{
+import { Link } from 'react-router-dom'
+import Principal from '../../pages/principal'
+const Sidebar = (props) =>{
     return(
-        <div className="sidebar">
+        <div className="sidebar" style={{height:props.altura } }>
             <div className="sidebar__content">
                 <nav className='sidebar__nav'>
                     <ul className='sidebar__nav-lista'>
                         <li>
                             <img src='IMG/home.svg'></img>
-                            <a href="#">Inicio</a>
+                            <Link to={"/principal"}>Inicio</Link>
                         </li>
                         <li>
                             <img src='IMG/search.svg'></img>
