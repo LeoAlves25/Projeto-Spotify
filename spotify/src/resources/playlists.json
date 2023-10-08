@@ -2,8 +2,8 @@
     "id": 1,
     "nome_playlist": "Playlist 1",
     "descricao": "Uma coleção das minhas músicas preferidas",
-    "criador": "Seu Nome",
-    "capa": "",
+    "criador": "Joshua Chen",
+    "capa": "../IMG/Playlist.png",
     "musicas": [
       {
         "id": 1,
@@ -33,7 +33,7 @@
     "nome_playlist": "playlist 2",
     "descricao": "Uma coleção das minhas músicas preferidas",
     "criador": "Seu Nome",
-    "capa": "",
+    "capa": "../IMG/Playlist.png",
     "musicas": [
       {
         "id": 1,
@@ -63,7 +63,7 @@
     "nome_playlist": "Playlist 3",
     "descricao": "Uma coleção das minhas músicas preferidas",
     "criador": "Seu Nome",
-    "capa": "",
+    "capa": "../IMG/Playlist.png",
     "musicas": [
       {
         "id": 1,
@@ -93,7 +93,7 @@
     "nome_playlist": "Playlist 4",
     "descricao": "Uma coleção das minhas músicas preferidas",
     "criador": "Seu Nome",
-    "capa": "",
+    "capa": "../IMG/Playlist.png",
     "musicas": [
       {
         "id": 1,

@@ -2,7 +2,7 @@ import React from 'react';
 import './PlaylistCard.css';
 import { Link } from 'react-router-dom';
 
-const PlaylistCard = (props) =>{
+const PlaylistCard = (props) => {
     return (
 
         <Link to={`/playlists/${props.id-1}`} state={{id: props.id-1, privacidade:props.privacidade}}>

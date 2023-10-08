@@ -5,8 +5,8 @@ const HeaderPrincipal = () => {
     return (
         <nav className='topNavbar'>
             <div className='topNavbar__arrows'>
-                <a><img src='IMG/arrowLeft.svg'></img> </a>
-                <a href='#'><img src='IMG/arrowRight.svg'></img></a>
+                <a><img src='../IMG/arrowLeft.svg'></img> </a>
+                <a href='#'><img src='../IMG/arrowRight.svg'></img></a>
             </div>
             <div className='topNavbar__links'>
                 

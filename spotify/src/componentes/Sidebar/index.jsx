@@ -10,11 +10,11 @@ const Sidebar = (props) =>{
                 <nav className='sidebar__nav'>
                     <ul className='sidebar__nav-lista'>
                         <li>
-                            <img src='IMG/home.svg'></img>
+                            <img src='../IMG/home.svg'></img>
                             <Link to={"/principal"}>Inicio</Link>
                         </li>
                         <li>
-                            <img src='IMG/search.svg'></img>
+                            <img src='../IMG/search.svg'></img>
                             <a href="#">Buscar</a>
                         </li>
                     </ul>
@@ -22,10 +22,10 @@ const Sidebar = (props) =>{
                 <section className="sidebar__biblioteca">
                     <div className="biblioteca__info">
                         <div className="info__conteiner-title">
-                            <img src='IMG/library.svg'></img>
+                            <img src='../IMG/library.svg'></img>
                             <h2 className='biblioteca__title'>Sua Biblioteca</h2>
                         </div>
-                        <button className='btn-criarPlaylist'><img src='IMG/createPlaylist.svg'></img></button>
+                        <button className='btn-criarPlaylist'><img src='../IMG/createPlaylist.svg'></img></button>
                     </div>
                     <div className="biblioteca__content">
                         <Playlist  />
