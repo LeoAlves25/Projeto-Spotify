@@ -3,7 +3,7 @@
     "nome_playlist": "Musicas Classicas",
     "descricao": "Uma coleção das minhas músicas preferidas",
     "criador": "Joshua Chen",
-    "capa": "../IMG/PlaylistClassicaCapa.jpg",
+    "capa": "/IMG/PlaylistClassicaCapa.jpg",
     "musicas": [
       {
         "id": 1,
@@ -30,151 +30,84 @@
   },
   {
     "id": 2,
-    "nome_playlist": "playlist 2",
-    "descricao": "Uma coleção das minhas músicas preferidas",
-    "criador": "Seu Nome",
-    "capa": "../IMG/Playlist.png",
+    "nome_playlist": "Bethoven",
+    "descricao": "As melhores de Bethoven",
+    "criador": "cairo Q",
+    "capa": "/IMG/bethoven.jpg",
     "musicas": [
       {
         "id": 1,
-        "titulo": "Música 1",
-        "artista": "Artista 1",
-        "duracao": "3:45",
-        "nome_arquivo_audio": "musica1.mp3"
-      },
-      {
-        "id": 2,
-        "titulo": "Música 2",
-        "artista": "Artista 2",
-        "duracao": "4:15",
-        "nome_arquivo_audio": "musica2.mp3"
-      },
-      {
-        "id": 3,
-        "titulo": "Música 3",
-        "artista": "Artista 3",
-        "duracao": "3:30",
-        "nome_arquivo_audio": "musica3.mp3"
+        "titulo": "Fur Elise",
+        "artista": "Beethoven",
+        "duracao": "3:09",
+        "nome_arquivo_audio": "/MUSICAS/Beethoven - Fur Elise.mp3"
       }
     ]
   },
   {
     "id": 3,
-    "nome_playlist": "Playlist 3",
-    "descricao": "Uma coleção das minhas músicas preferidas",
-    "criador": "Seu Nome",
-    "capa": "../IMG/Playlist.png",
+    "nome_playlist": "Handel",
+    "descricao": "Só as top do Handel",
+    "criador": "cairo Q",
+    "capa": "/IMG/handel.jpg",
     "musicas": [
       {
-        "id": 1,
-        "titulo": "Música 1",
-        "artista": "Artista 1",
+        "id": 4,
+        "titulo": "Arrival of te Queen of Sheba",
+        "artista": "Handel",
+        "duracao": "3:27",
+        "nome_arquivo_audio": "/MUSICAS/Händel  - Arrival of te Queen of Sheba.mp3"
+      },
+      {
+        "id": 5,
+        "titulo": "Hallelujah from the Messiah",
+        "artista": "Handel",
         "duracao": "3:45",
-        "nome_arquivo_audio": "caminho arquivo"
+        "nome_arquivo_audio": "/MUSICAS/Händel   Hallelujah from the Messiah.mp3"
       },
       {
-        "id": 2,
-        "titulo": "Música 2",
-        "artista": "Artista 2",
-        "duracao": "4:15",
-        "nome_arquivo_audio": "caminho arquivo"
+        "id": 6,
+        "titulo": "La Rejouissance",
+        "artista": "Handel",
+        "duracao": "3:29",
+        "nome_arquivo_audio": "/MUSICAS/Händel   La Rejouissance from Royal Fireworks Music.mp3"
       },
       {
-        "id": 3,
-        "titulo": "Música 3",
-        "artista": "Artista 3",
-        "duracao": "3:30",
-        "nome_arquivo_audio": "musica3.mp3"
+        "id": 7,
+        "titulo": "Ombra Mai Fu",
+        "artista": "Handel",
+        "duracao": "2:50",
+        "nome_arquivo_audio": "/MUSICAS/Händel - Ombra Mai Fu.mp3"
       }
     ]
   },
   {
     "id": 4,
-    "nome_playlist": "Playlist 4",
-    "descricao": "Uma coleção das minhas músicas preferidas",
-    "criador": "Seu Nome",
-    "capa": "../IMG/Playlist.png",
+    "nome_playlist": "Mozart",
+    "descricao": "Uma coleção das músicas de Mozart",
+    "criador": "cairo Q",
+    "capa": "/IMG/mozart.jpg",
     "musicas": [
       {
-        "id": 1,
-        "titulo": "Música 1",
-        "artista": "Artista 1",
-        "duracao": "3:45",
-        "nome_arquivo_audio": "caminho arquivo"
+        "id": 8,
+        "titulo": "Alla turca from Piano Sonata No 11",
+        "artista": "Mozart",
+        "duracao": "3:43",
+        "nome_arquivo_audio": "/MUSICAS/Mozart - Alla turca from Piano Sonata No 11.mp3"
       },
       {
-        "id": 2,
-        "titulo": "Música 2",
-        "artista": "Artista 2",
-        "duracao": "4:15",
-        "nome_arquivo_audio": "caminho arquivo"
+        "id": 9,
+        "titulo": "Der Hölle Rache",
+        "artista": "Mozart",
+        "duracao": "2:57",
+        "nome_arquivo_audio": "/MUSICAS/Mozart - Der Hölle Rache( Queen of the Night Zaberflöte).mp3"
       },
       {
-        "id": 3,
-        "titulo": "Música 3",
-        "artista": "Artista 3",
-        "duracao": "3:30",
-        "nome_arquivo_audio": "musica3.mp3"
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "nome_playlist": "Playlist 5",
-    "descricao": "Uma coleção das minhas músicas preferidas",
-    "criador": "Seu Nome",
-    "capa": "",
-    "musicas": [
-      {
-        "id": 1,
-        "titulo": "Música 1",
-        "artista": "Artista 1",
-        "duracao": "3:45",
-        "nome_arquivo_audio": "caminho arquivo"
-      },
-      {
-        "id": 2,
-        "titulo": "Música 2",
-        "artista": "Artista 2",
-        "duracao": "4:15",
-        "nome_arquivo_audio": "caminho arquivo"
-      },
-      {
-        "id": 3,
-        "titulo": "Música 3",
-        "artista": "Artista 3",
-        "duracao": "3:30",
-        "nome_arquivo_audio": "musica3.mp3"
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "nome_playlist": "Playlist 6",
-    "descricao": "Uma coleção das minhas músicas preferidas",
-    "criador": "Seu Nome",
-    "capa": "",
-    "musicas": [
-      {
-        "id": 1,
-        "titulo": "Música 1",
-        "artista": "Artista 1",
-        "duracao": "3:45",
-        "nome_arquivo_audio": "caminho arquivo"
-      },
-      {
-        "id": 2,
-        "titulo": "Música 2",
-        "artista": "Artista 2",
-        "duracao": "4:15",
-        "nome_arquivo_audio": "caminho arquivo"
-      },
-      {
-        "id": 3,
-        "titulo": "Música 3",
-        "artista": "Artista 3",
-        "duracao": "3:30",
-        "nome_arquivo_audio": "musica3.mp3"
+        "id": 10,
+        "titulo": "Le nozze di Figaro",
+        "artista": "Mozart",
+        "duracao": "4:03",
+        "nome_arquivo_audio": "/MUSICAS/Mozart - Le nozze di Figaro.mp3"
       }
     ]
   }
