@@ -1,12 +1,21 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import './Player.css';
 
-const Player = () =>{ 
-    return(
-        <div className="player">
-            <h1>Player</h1>
-        </div>
-    )
-}
+const Player = (props) => {
+  const [musicaUrl, setMusicaUrl] = useState(props.musicaUrl); 
 
-export default Player
+  useEffect(() => {
+    setMusicaUrl(props.musicaUrl);
+  }, [props.musicaUrl]);
+
+  return (
+    <div className="playerContent">
+      <audio src={musicaUrl} className="player" controls autoPlay> 
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
+    </div>
+  );
+};
+
+export default Player;

@@ -1,4 +1,12 @@
-.player{
+.playerContent{
     background-color: rgb(0, 0, 0) ;
     height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.player{
+    margin: 0;
+    padding: 0;
+    width: 70%;
 }

@@ -22,7 +22,7 @@ const bodyPrincipal = (props) => {
 
                         </div>
                     </section>
-                    <section className='bodyprincipal__main-content'>
+                    { /*<section className='bodyprincipal__main-content'>
                         <h2>Playlists Pessoais</h2>
                         <div className="wrapperPlaylist">
                             {playlists.map((playlist) => {
@@ -33,6 +33,7 @@ const bodyPrincipal = (props) => {
 
                         </div>
                     </section>
+                    */}
                 </div>
                 
             </div>

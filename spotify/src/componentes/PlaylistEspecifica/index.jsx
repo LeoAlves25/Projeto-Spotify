@@ -64,7 +64,7 @@ const PlaylistEspecifica = ({onMusicaClick} ) => {
                                         </td>
                                         <td className="titulo-musica">
                                             <div className="imagem-musica">
-                                                <img src="" />
+                                                <img src={playlist.capa} />
                                             </div>
                                             <div className="nome-musica">
                                                 {musica.titulo}
