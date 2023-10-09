@@ -3,7 +3,7 @@ import HeaderPrincipal from '../HeaderPrincipal'
 import playlists from '../../resources/playlists.json'
 import { useLocation } from "react-router"
 
-const PlaylistEspecifica = () => {
+const PlaylistEspecifica = ({onMusicaClick} ) => {
     const location = useLocation();
     let playlist = playlists[location.state.id];
     let musicas = playlist.musicas.map((musica) => {
@@ -11,6 +11,12 @@ const PlaylistEspecifica = () => {
     });
     let tamanhoPlaylist = playlist.musicas.length;
 
+    function handleSaveMusica(musicaId) {
+        onMusicaClick(musicaId);
+    }
+
+
+   
     return (
         <div className="BodyPlaylistEspecifica">
             <div className="BodyPlaylistEspecifica-content">
@@ -49,9 +55,12 @@ const PlaylistEspecifica = () => {
 
                             {musicas.map((musica) => {
                                 return (
-                                    <tr>
-                                        <td>
+                                    <tr onClick={() => handleSaveMusica(musica.nome_arquivo_audio)}>
+                                        <td className="id-musica">
                                             {musica.id}
+                                        </td>
+                                        <td className="botao-musica">
+                                            <button>A</button>
                                         </td>
                                         <td className="titulo-musica">
                                             <div className="imagem-musica">
@@ -61,12 +70,16 @@ const PlaylistEspecifica = () => {
                                                 {musica.titulo}
                                             </div>
                                         </td>
+                                        
                                         <td className="artista-musica">
                                             {musica.artista}
                                         </td>
                                         <td className="duracao-musica">
                                             {musica.duracao}
                                         </td>
+                                       
+
+
                                     </tr>
                                 )
                             })}

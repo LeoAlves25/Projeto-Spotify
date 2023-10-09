@@ -119,3 +119,12 @@
     align-items: center;
     flex-direction: row;
 }
+
+.botao-musica{
+    display: none;
+}
+
+tr:hover .titulo-musica, tr:hover .artista-musica, tr:hover .duracao-musica, tr:hover .imagem-musica, tr:hover .id-musica{
+    background-color:#8484853a;
+    cursor: pointer;
+}
