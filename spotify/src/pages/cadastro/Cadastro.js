@@ -1,3 +1,7 @@
+import React, { useState, useEffect, useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 import "./Cadastro.css";
 import { Link } from "react-router-dom";
 import Footer2 from "../../components/Footer2/";
@@ -5,7 +9,115 @@ import Nav from "../../components/Nav";
 
 import img from "../../IMG/logo-spotify.png";
 
-export default function cadastro() {
+import Usuario from "../../entities/Usuario";
+
+import { UserContext } from '../../App';
+
+export default function Cadastro() {
+  // var checkTermos = document.getElementById("checkTermos");
+  const navigate = useNavigate();
+
+  var {usuarios, setUsuarios} = useContext(UserContext);
+
+  const [inputFields, setInputFields] = useState({
+    nomeUsuario: "",
+    sobrenomeUsuario: "",
+    emailUsuario: "",
+    senhaUsuario: "",
+    repetirSenhaUsuario: "",
+    radioOption: "",
+    checkTermos: ""
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const [submitting, setSubmitting] = useState(false);
+
+  const validateValues = (inputFields) => {
+    let errors = {};
+    if (!inputFields.nomeUsuario) {
+      errors.nomeUsuario = "Nome é obrigatório";
+    }
+    if (!inputFields.sobrenomeUsuario) {
+      errors.sobrenomeUsuario = "Sobrenome é obrigatório";
+    }
+    if (!inputFields.emailUsuario) {
+      errors.emailUsuario = "Email é obrigatório";
+    } else if (!/\S+@\S+\.\S+/.test(inputFields.emailUsuario)) {
+      errors.emailUsuario = "Email é inválido";
+    }
+    if (!inputFields.senhaUsuario) {
+      errors.senhaUsuario = "Senha é obrigatório";
+    } else if (inputFields.senhaUsuario.length < 8) {
+      errors.senhaUsuario = "Senha deve ter no mínimo 8 caracteres";
+    }
+    if (!inputFields.repetirSenhaUsuario) {
+      errors.repetirSenhaUsuario = "Repita sua senha";
+    } else if (inputFields.repetirSenhaUsuario !== inputFields.senhaUsuario) {
+      errors.repetirSenhaUsuario = "Senhas não conferem";
+    }
+
+    if (!inputFields.radioOption) {
+      errors.radioMasc = "Selecione uma opção";
+    }
+
+    if (!inputFields.checkTermos) {
+      errors.checkTermos = "Você precisa concordar com os termos";
+    }
+    return errors;
+  };
+
+  const handleChange = (e) => {
+    setInputFields({
+      ...inputFields,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrors(validateValues(inputFields));
+    setSubmitting(true);
+  };
+
+  const finishSubmit = () => {
+    var usuario = new Usuario(
+      inputFields.nomeUsuario,
+      inputFields.sobrenomeUsuario,
+      inputFields.emailUsuario,
+      inputFields.senhaUsuario
+    )
+
+    if(usuarios.find(user => user.email === usuario.email)){
+      toast.error("Email já cadastrado!",{
+        theme: "colored",
+      });
+      return;
+    }
+
+    setUsuarios([...usuarios, usuario]);
+
+    toast.success('Usuário cadastrado com sucesso!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      onClose: () => {
+        navigate("/login");
+      }
+      });
+  };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && submitting) {
+      finishSubmit();
+    }
+  }, [errors, submitting]);
+
   function showPasswordCharacters(inputId, iconId) {
     const togglePassword = document.querySelector("#" + iconId);
     const password = document.querySelector("#" + inputId);
@@ -22,6 +134,8 @@ export default function cadastro() {
         <Nav />
       </div>
 
+    <ToastContainer />
+
       <section className="p-5 mb-5">
         <div className="container">
           <div className="row d-flex justify-content-center ">
@@ -34,42 +148,88 @@ export default function cadastro() {
                         Cadastrar Usuário
                       </p>
 
-                      <form className="mx-1 mx-md-4">
-                        <div className="d-flex flex-row align-items-center mb-4">
+                      <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
+                        <div className="d-flex flex-row  mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" for="form3Example1c">
-                              Nome de Usuário
+                            <label className="form-label" htmlFor="nomeUsuario">
+                              Primeiro Nome
                             </label>
                             <input
                               type="text"
-                              id="form3Example1c"
+                              id="nomeUsuario"
+                              name="nomeUsuario"
+                              value={inputFields.nomeUsuario}
+                              onChange={handleChange}
                               className="form-control"
                             />
+
+                            {errors.nomeUsuario ? (
+                              <div className="text-danger">
+                                {errors.nomeUsuario}
+                              </div>
+                            ) : null}
                           </div>
                         </div>
 
-                        <div className="d-flex flex-row align-items-center mb-4">
+                        <div className="d-flex flex-row  mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" for="form3Example3c">
+                            <label
+                              className="form-label"
+                              htmlFor="sobrenomeUsuario"
+                            >
+                              Sobrenome
+                            </label>
+                            <input
+                              type="text"
+                              id="sobrenomeUsuario"
+                              name="sobrenomeUsuario"
+                              value={inputFields.sobrenomeUsuario}
+                              onChange={handleChange}
+                              className="form-control"
+                            />
+
+                            {errors.sobrenomeUsuario ? (
+                              <div className="text-danger">
+                                {errors.sobrenomeUsuario}
+                              </div>
+                            ) : null}
+                          </div>
+                        </div>
+
+                        <div className="d-flex flex-row mb-4">
+                          <div className="form-outline flex-fill mb-0">
+                            <label className="form-label" htmlFor="emailUsuario">
                               Email
                             </label>
                             <input
                               type="email"
-                              id="form3Example3c"
+                              id="emailUsuario"
+                              name="emailUsuario"
+                              value={inputFields.emailUsuario}
+                              onChange={handleChange}
                               className="form-control"
                             />
+
+                            {errors.emailUsuario ? (
+                              <div className="text-danger">
+                                {errors.emailUsuario}
+                              </div>
+                            ) : null}
                           </div>
                         </div>
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" for="form3Example4c">
+                            <label className="form-label" htmlFor="senhaUsuario">
                               Senha
                             </label>
                             <div className="input-group">
                               <input
                                 type="password"
-                                id="password"
+                                id="senhaUsuario"
+                                name="senhaUsuario"
+                                value={inputFields.senhaUsuario}
+                                onChange={handleChange}
                                 className="form-control"
                               />
                               <i
@@ -77,24 +237,35 @@ export default function cadastro() {
                                 id="iconPassword"
                                 onClick={() => {
                                   showPasswordCharacters(
-                                    "password",
+                                    "senhaUsuario",
                                     "iconPassword"
                                   );
                                 }}
                               ></i>
                             </div>
+                            {errors.senhaUsuario ? (
+                              <div className="text-danger">
+                                {errors.senhaUsuario}
+                              </div>
+                            ) : null}
                           </div>
                         </div>
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" for="form3Example4cd">
+                            <label
+                              className="form-label"
+                              htmlFor="repetirSenhaUsuario"
+                            >
                               Repita sua Senha
                             </label>
                             <div className="input-group">
                               <input
                                 type="password"
-                                id="repeatpassword"
+                                id="repetirSenhaUsuario"
+                                name="repetirSenhaUsuario"
+                                value={inputFields.repetirSenhaUsuario}
+                                onChange={handleChange}
                                 className="form-control"
                               />
                               <i
@@ -102,12 +273,17 @@ export default function cadastro() {
                                 id="iconRepeatPassword"
                                 onClick={() => {
                                   showPasswordCharacters(
-                                    "repeatpassword",
+                                    "repetirSenhaUsuario",
                                     "iconRepeatPassword"
                                   );
                                 }}
                               ></i>
                             </div>
+                            {errors.repetirSenhaUsuario ? (
+                              <div className="text-danger">
+                                {errors.repetirSenhaUsuario}
+                              </div>
+                            ) : null}
                           </div>
                         </div>
 
@@ -116,13 +292,11 @@ export default function cadastro() {
                             <input
                               className="form-check-input"
                               type="radio"
-                              name="flexRadioDefault"
-                              id="flexRadioDefault1"
+                              name="radioOption"
+                              id="radioMasc"
+                              onChange={handleChange}
                             />
-                            <label
-                              className="form-check-label"
-                              for="flexRadioDefault1"
-                            >
+                            <label className="form-check-label" htmlFor="radioMasc">
                               Masculino
                             </label>
                           </div>
@@ -130,13 +304,11 @@ export default function cadastro() {
                             <input
                               className="form-check-input"
                               type="radio"
-                              name="flexRadioDefault"
-                              id="flexRadioDefault2"
+                              name="radioOption"
+                              id="radioFem"
+                              onChange={handleChange}
                             />
-                            <label
-                              className="form-check-label"
-                              for="flexRadioDefault2"
-                            >
+                            <label className="form-check-label" htmlFor="radioFem">
                               Feminino
                             </label>
                           </div>
@@ -144,55 +316,69 @@ export default function cadastro() {
                             <input
                               className="form-check-input"
                               type="radio"
-                              name="flexRadioDefault"
-                              id="flexRadioDefault3"
+                              name="radioOption"
+                              id="radioOutros"
+                              onChange={handleChange}
                             />
                             <label
                               className="form-check-label"
-                              for="flexRadioDefault3"
+                              htmlFor="radioOutros"
                             >
                               Outros
                             </label>
                           </div>
+                          {errors.radioMasc ? (
+                            <div className="text-danger">
+                              {errors.radioMasc}
+                            </div>
+                          ) : null}
                         </div>
                         <br />
-                        <div className="form-check d-flex justify-content-center mb-2">
-                          <input
-                            className="form-check-input me-2"
-                            type="checkbox"
-                            value=""
-                            id="form2Example3c"
-                          />
-                          <label
-                            className="form-check-label"
-                            for="form2Example3"
-                          >
-                            Concordo com todos os{" "}
-                            <a href="../../IMG/meme-termos.png" target="_blank">
-                              Termos de Serviço
-                            </a>
-                          </label>
+                        <div>
+                          <div className="form-check d-flex justify-content-center mb-2">
+                            <input
+                              className="form-check-input me-2"
+                              type="checkbox"
+                              name="checkTermos"
+                              id="checkTermos"
+                              onChange={handleChange}
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="checkTermos"
+                            >
+                              Concordo com todos os{" "}
+                              <a
+                                href="../../IMG/meme-termos.png"
+                                target="_blank"
+                              >
+                                Termos de Serviço
+                              </a>
+                            </label>
+                          </div>
+                          {errors.checkTermos ? (
+                            <div className="text-danger">
+                              {errors.checkTermos}
+                            </div>
+                          ) : null}
                         </div>
 
                         <div className="form-check d-flex justify-content-center mb-4">
-                          <label
-                            className="form-check-label"
-                            for="form2Example3"
-                          >
+                          <label className="">
                             Já possuo conta. Realizar{" "}
                             <Link to="/login">login</Link> .
                           </label>
                         </div>
 
                         <div className="d-flex justify-content-center mx-4 mb-1 mb-lg-1">
-                          <Link to="/login">
-                            <button
-                              type="button"
-                              className="btn btn-success btn-lg"
-                            >
-                              Registrar
-                            </button>
-                          </Link>
+                          {/* <Link to="/login"> */}
+                          <button
+                            type="submit"
+                            className="btn btn-success btn-lg"
+                          >
+                            Registrar
+                          </button>
+                          {/* </Link> */}
                         </div>
                       </form>
                     </div>
@@ -212,7 +398,6 @@ export default function cadastro() {
       <div>
         <Footer2 />
       </div>
-
     </>
   );
 }

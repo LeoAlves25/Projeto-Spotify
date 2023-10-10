@@ -7,18 +7,18 @@ export default function Footer(props) {
     return (
           
 
-            <footer class="footer" >
+            <footer className="footer" >
                 
-                <div class="col-md-4 d-flex align-items-center">
+                <div className="col-md-4 d-flex align-items-center">
                  
-                    <span class="mb-3 mb-md-0 text-success">© 2023 Spotify, Inc</span>
+                    <span className="mb-3 mb-md-0 text-success">© 2023 Spotify, Inc</span>
                 </div>
 
-                <ul class="nav col-md-4  justify-content-end list-unstyled d-flex">
-                    <li class="ms-3 "><Link to="#" class="text-body-secondary" ><img src={'/IMG/icons8-facebook.svg'} class="bi" width="24" height="24" alt=''/></Link></li>
-                    <li class="ms-3"><Link to="#" class="text-body-secondary" ><img src={'/IMG/icons8-insta.svg'} class="bi" width="24" height="24" alt=''/></Link></li>
-                    <li class="ms-3 me-3">
-                        <Link to="#" class="text-body-secondary" ><img src={'/IMG/icons8-twitter.svg'} class="bi" width="24" height="24" alt=''/></Link>
+                <ul className="nav col-md-4  justify-content-end list-unstyled d-flex">
+                    <li className="ms-3 "><Link to="#" className="text-body-secondary" ><img src={'/IMG/icons8-facebook.svg'} className="bi" width="24" height="24" alt=''/></Link></li>
+                    <li className="ms-3"><Link to="#" className="text-body-secondary" ><img src={'/IMG/icons8-insta.svg'} className="bi" width="24" height="24" alt=''/></Link></li>
+                    <li className="ms-3 me-3">
+                        <Link to="#" className="text-body-secondary" ><img src={'/IMG/icons8-twitter.svg'} className="bi" width="24" height="24" alt=''/></Link>
                     </li>
                     
                     

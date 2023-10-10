@@ -1,10 +1,87 @@
+import React, {useState, useEffect, useContext} from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import img from "../../IMG/logo-spotify.png";
 import { Link } from "react-router-dom";
 import Footer2 from "../../components/Footer2/";
 import Nav from "../../components/Nav";
 
+import { UserContext } from '../../App';
+import { UserLogadoContext } from '../../App';
+
 export default function Login() {
+
+  var usuarios = useContext(UserContext);
+  var usuarioLogado = useContext(UserLogadoContext);
+
+  const navigate = useNavigate();
+
+  const [inputFields, setInputFields] = useState({
+    emailUsuario: "",
+    senhaUsuario: ""
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const [submitting, setSubmitting] = useState(false);
+
+  const validateValues = (inputFields) => {
+    let errors = {};
+    if (!inputFields.emailUsuario) {
+      errors.emailUsuario = "Email é obrigatório";
+    } else if (!/\S+@\S+\.\S+/.test(inputFields.emailUsuario)) {
+      errors.emailUsuario = "Email é inválido";
+    }
+
+    if (!inputFields.senhaUsuario) {
+      errors.senhaUsuario = "Senha é obrigatório";
+    } 
+    return errors;
+  };
+
+  const handleChange = (e) => {
+    setInputFields({
+      ...inputFields,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrors(validateValues(inputFields));
+    setSubmitting(true);
+  };
+
+  const finishSubmit = () => {
+    let login = {
+      emailUsuario: inputFields.emailUsuario,
+      senhaUsuario: inputFields.senhaUsuario
+    } 
+
+    if(usuarios.usuarios.find(usuario => usuario.email === login.emailUsuario && usuario.password === login.senhaUsuario)){
+      
+      toast.success("Login realizado com sucesso!",{
+        theme: "colored",
+        onClose: () => {
+          navigate("/principal");
+        }
+      });
+    }else{
+      toast.error("Email ou senha incorretos!",{
+        theme: "colored",
+      });
+    }
+
+  };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && submitting) {
+      finishSubmit();
+    }
+  }, [errors, submitting]);
+
   function showPasswordCharacters(inputId, iconId) {
     const togglePassword = document.querySelector(iconId);
     const password = document.querySelector(inputId);
@@ -22,6 +99,8 @@ export default function Login() {
         <Nav />
       </div>
 
+      <ToastContainer />
+
       <section className="h-100 p-5 d-flex align-items-center">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -34,17 +113,20 @@ export default function Login() {
                         Login
                       </p>
 
-                      <form className="mx-1 mx-md-4">
+                      <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" for="form3Example1c">
-                              Nome de Usuário
+                            <label className="form-label" htmlFor="emailUsuario">
+                              Email
                             </label>
                             <input
-                              type="text"
-                              id="form3Example1c"
+                              type="email"
+                              id="emailUsuario"
+                              name="emailUsuario"
                               className="form-control"
+                              value={inputFields.emailUsuario}
+                              onChange={handleChange}
                             />
                           </div>
                         </div>
@@ -52,13 +134,16 @@ export default function Login() {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" for="form3Example4c">
+                            <label className="form-label" htmlFor="password">
                               Senha
                             </label>
                             <div className="input-group">
                               <input
                                 type="password"
                                 id="password"
+                                name="senhaUsuario"
+                                value={inputFields.senhaUsuario}
+                                onChange={handleChange}
                                 className="form-control"
                               />
                               <i
@@ -78,7 +163,7 @@ export default function Login() {
                         <div className="form-check d-flex justify-content-center mb-5">
                           <label
                             className="form-check-label"
-                            for="form2Example3"
+                            htmlFor="form2Example3"
                           >
                             Não possuo conta. Realizar o{" "}
                             <Link to="/cadastro">cadastro</Link>.
@@ -86,14 +171,14 @@ export default function Login() {
                         </div>
 
                         <div className="d-flex justify-content-center mx-4 mb-1 mb-lg-1">
-                          <Link to="/principal">
+                          {/* <Link to="/principal"> */}
                             <button
-                              type="button"
+                              type="submit"
                               className="btn btn-success btn-lg"
                             >
                               Entrar
                             </button>
-                          </Link>
+                          {/* </Link> */}
                         </div>
                       </form>
                     </div>
