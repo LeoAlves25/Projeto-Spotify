@@ -1,26 +1,26 @@
-import React, {useState, useEffect, useContext} from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
-import img from "../../IMG/logo-spotify.png";
 import { Link } from "react-router-dom";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import "./Login.css";
 import Footer2 from "../../components/Footer2/";
 import Nav from "../../components/Nav";
 
-import { UserContext } from '../../App';
-import { UserLogadoContext } from '../../App';
+import img from "../../IMG/logo-spotify.png";
+
+import UserServices from "../../services/UserServices";
 
 export default function Login() {
-
-  var usuarios = useContext(UserContext);
-  var usuarioLogado = useContext(UserLogadoContext);
+  const userServices = new UserServices();
 
   const navigate = useNavigate();
 
   const [inputFields, setInputFields] = useState({
     emailUsuario: "",
-    senhaUsuario: ""
+    senhaUsuario: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -37,7 +37,7 @@ export default function Login() {
 
     if (!inputFields.senhaUsuario) {
       errors.senhaUsuario = "Senha é obrigatório";
-    } 
+    }
     return errors;
   };
 
@@ -54,26 +54,39 @@ export default function Login() {
     setSubmitting(true);
   };
 
-  const finishSubmit = () => {
+  const finishSubmit = async () => {
     let login = {
       emailUsuario: inputFields.emailUsuario,
-      senhaUsuario: inputFields.senhaUsuario
-    } 
+      senhaUsuario: inputFields.senhaUsuario,
+    };
 
-    if(usuarios.usuarios.find(usuario => usuario.email === login.emailUsuario && usuario.password === login.senhaUsuario)){
-      
-      toast.success("Login realizado com sucesso!",{
+    let usuario = await userServices.verificaUsuario(
+      login.emailUsuario,
+      login.senhaUsuario
+    );
+
+    if (!usuario) {
+      toast.error("Email ou senha incorretos!", {
         theme: "colored",
-        onClose: () => {
-          navigate("/principal");
+      });
+    } else {
+      localStorage.setItem("usuarioNome", JSON.stringify(usuario.firstName));
+      localStorage.setItem("usuarioEmail", JSON.stringify(usuario.email));
+
+      const usuarioArmazenado = await JSON.parse(
+        localStorage.getItem("usuarioNome")
+      );
+
+      toast.success(
+        `Login realizado com sucesso!\nSeja bem vindo ${usuarioArmazenado}`,
+        {
+          theme: "colored",
+          onClose: () => {
+            navigate("/principal");
+          },
         }
-      });
-    }else{
-      toast.error("Email ou senha incorretos!",{
-        theme: "colored",
-      });
+      );
     }
-
   };
 
   useEffect(() => {
@@ -117,7 +130,10 @@ export default function Login() {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" htmlFor="emailUsuario">
+                            <label
+                              className="form-label"
+                              htmlFor="emailUsuario"
+                            >
                               Email
                             </label>
                             <input
@@ -172,12 +188,12 @@ export default function Login() {
 
                         <div className="d-flex justify-content-center mx-4 mb-1 mb-lg-1">
                           {/* <Link to="/principal"> */}
-                            <button
-                              type="submit"
-                              className="btn btn-success btn-lg"
-                            >
-                              Entrar
-                            </button>
+                          <button
+                            type="submit"
+                            className="btn btn-success btn-lg"
+                          >
+                            Entrar
+                          </button>
                           {/* </Link> */}
                         </div>
                       </form>

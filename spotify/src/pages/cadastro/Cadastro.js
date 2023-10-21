@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Cadastro.css";
 import { Link } from "react-router-dom";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import "./Cadastro.css";
 import Footer2 from "../../components/Footer2/";
 import Nav from "../../components/Nav";
 
@@ -11,13 +13,12 @@ import img from "../../IMG/logo-spotify.png";
 
 import Usuario from "../../entities/Usuario";
 
-import { UserContext } from '../../App';
+import UserServices from "../../services/UserServices";
 
 export default function Cadastro() {
-  // var checkTermos = document.getElementById("checkTermos");
   const navigate = useNavigate();
 
-  var {usuarios, setUsuarios} = useContext(UserContext);
+  const userServices = new UserServices();
 
   const [inputFields, setInputFields] = useState({
     nomeUsuario: "",
@@ -26,7 +27,7 @@ export default function Cadastro() {
     senhaUsuario: "",
     repetirSenhaUsuario: "",
     radioOption: "",
-    checkTermos: ""
+    checkTermos: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -80,36 +81,27 @@ export default function Cadastro() {
     setSubmitting(true);
   };
 
-  const finishSubmit = () => {
+  const finishSubmit = async () => {
     var usuario = new Usuario(
       inputFields.nomeUsuario,
       inputFields.sobrenomeUsuario,
       inputFields.emailUsuario,
       inputFields.senhaUsuario
-    )
+    );
 
-    if(usuarios.find(user => user.email === usuario.email)){
-      toast.error("Email já cadastrado!",{
+    var verificacao = await userServices.verificarEmail(usuario.email);
+
+    if (!verificacao) {
+      toast.error("Email já cadastrado!", {
         theme: "colored",
       });
-      return;
-    }
+    } else {
+      let postado = await userServices.postUser(usuario);
 
-    setUsuarios([...usuarios, usuario]);
-
-    toast.success('Usuário cadastrado com sucesso!', {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-      onClose: () => {
+      if (postado) {
         navigate("/login");
       }
-      });
+    }
   };
 
   useEffect(() => {
@@ -134,7 +126,7 @@ export default function Cadastro() {
         <Nav />
       </div>
 
-    <ToastContainer />
+      <ToastContainer />
 
       <section className="p-5 mb-5">
         <div className="container">
@@ -198,7 +190,10 @@ export default function Cadastro() {
 
                         <div className="d-flex flex-row mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" htmlFor="emailUsuario">
+                            <label
+                              className="form-label"
+                              htmlFor="emailUsuario"
+                            >
                               Email
                             </label>
                             <input
@@ -220,7 +215,10 @@ export default function Cadastro() {
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
-                            <label className="form-label" htmlFor="senhaUsuario">
+                            <label
+                              className="form-label"
+                              htmlFor="senhaUsuario"
+                            >
                               Senha
                             </label>
                             <div className="input-group">
@@ -296,7 +294,10 @@ export default function Cadastro() {
                               id="radioMasc"
                               onChange={handleChange}
                             />
-                            <label className="form-check-label" htmlFor="radioMasc">
+                            <label
+                              className="form-check-label"
+                              htmlFor="radioMasc"
+                            >
                               Masculino
                             </label>
                           </div>
@@ -308,7 +309,10 @@ export default function Cadastro() {
                               id="radioFem"
                               onChange={handleChange}
                             />
-                            <label className="form-check-label" htmlFor="radioFem">
+                            <label
+                              className="form-check-label"
+                              htmlFor="radioFem"
+                            >
                               Feminino
                             </label>
                           </div>

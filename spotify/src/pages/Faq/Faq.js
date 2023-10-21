@@ -1,10 +1,24 @@
 import "./Faq.css";
+import React, { useState, useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Nav from "../../components/Nav";
 import Footer2 from "../../components/Footer2/";
-import data from "../../resources/FAQ.json";
+
+import FaqServices from "../../services/FaqServices";
 
 export default function Faq() {
+  const faqServices = new FaqServices();
+
+  const [faq, setFaq] = useState([]);
+
+  const getFaq = async () => {
+    setFaq(await faqServices.getFaq());
+  };
+
+  useEffect(() => {
+    getFaq();
+  });
+
   return (
     <>
       <div>
@@ -33,10 +47,10 @@ export default function Faq() {
           <div className="container">
             <div>
               <Accordion>
-                {data.map((el, idx) => (
+                {faq.map((el, idx) => (
                   <Accordion.Item key={idx} eventKey={idx}>
-                    <Accordion.Header>{data[idx].Enuciado}</Accordion.Header>
-                    <Accordion.Body>{data[idx].Resposta}</Accordion.Body>
+                    <Accordion.Header>{faq[idx].enuciado}</Accordion.Header>
+                    <Accordion.Body>{faq[idx].resposta}</Accordion.Body>
                   </Accordion.Item>
                 ))}
               </Accordion>
