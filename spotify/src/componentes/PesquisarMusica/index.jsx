@@ -8,6 +8,8 @@ const PesquisarMusica = () => {
   const musicServices = new MusicService();
 
   const [music, setMusic] = useState([]);
+  const [filter, setFilter] = useState('');
+
   var musicFiltred = [];
 
   const getMusic = async () => {
@@ -17,7 +19,14 @@ const PesquisarMusica = () => {
   useEffect(() => {
     getMusic();
   },[]);
-  musicFiltred = music;
+
+  musicFiltred = music.filter((song) => {
+    const searchValue = filter.toLowerCase();
+    return (
+      song.titulo.toLowerCase().includes(searchValue) ||
+      song.artista.toLowerCase().includes(searchValue)
+    );
+  });
 
   return (
     <div>
@@ -35,6 +44,7 @@ const PesquisarMusica = () => {
                 class="form-control"
                 placeholder="Pesquisar música..."
                 aria-label="Search"
+                onChange={(e) => setFilter(e.target.value)}
               />
             </div>
             <div className="playlist-content ">

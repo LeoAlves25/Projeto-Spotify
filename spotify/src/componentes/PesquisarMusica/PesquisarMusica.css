@@ -30,11 +30,11 @@
 }
 
 hr{
-    color: azure;
+    color: azure !important;
 }
 
 h1{
-    color: whitesmoke;
+    color: whitesmoke !important;
 }
 
 .playlist-info {
