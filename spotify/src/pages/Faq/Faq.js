@@ -17,7 +17,7 @@ export default function Faq() {
 
   useEffect(() => {
     getFaq();
-  });
+  }, []);
 
   return (
     <>

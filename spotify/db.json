@@ -20,6 +20,13 @@
       "email": "leo@email.com",
       "password": "123",
       "id": 3
+    },
+    {
+      "firstName": "Gijo",
+      "lastName": "Teste",
+      "email": "gijo@email.com",
+      "password": "12345678",
+      "id": 4
     }
   ],
   "playlists": [
@@ -188,13 +195,6 @@
       "nome_arquivo_audio": "/MUSICAS/Boccherini - Minuet.mp3"
     },
     {
-      "id": 1,
-      "titulo": "Fur Elise",
-      "artista": "Beethoven",
-      "duracao": "3:09",
-      "nome_arquivo_audio": "/MUSICAS/Beethoven - Fur Elise.mp3"
-    },
-    {
       "id": 4,
       "titulo": "Arrival of te Queen of Sheba",
       "artista": "Handel",
@@ -242,6 +242,13 @@
       "artista": "Mozart",
       "duracao": "4:03",
       "nome_arquivo_audio": "/MUSICAS/Mozart - Le nozze di Figaro.mp3"
+    },
+    {
+      "id": 11,
+      "titulo": "Fur Elise",
+      "artista": "Beethoven",
+      "duracao": "3:09",
+      "nome_arquivo_audio": "/MUSICAS/Beethoven - Fur Elise.mp3"
     }
   ],
   "faq": [

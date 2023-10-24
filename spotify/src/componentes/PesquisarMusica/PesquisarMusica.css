@@ -1,0 +1,142 @@
+.BodyPesquisarMusica {
+    height: 90vh;
+    padding: 1em 1em 1em 0.5em;
+}
+
+.BodyPesquisarMusica-content {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5em;
+}
+
+.pesquisarMusica{
+    width: 100%;
+}
+
+.playlist-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.playlist-imagem {
+    display: flex;
+    justify-items: center;
+    width: 250px;
+    height: 250px;
+    box-shadow: 3px 3px 46px -4px rgba(0, 0, 0, 0.66);   
+    border-radius: 20%;
+}
+
+hr{
+    color: azure;
+}
+
+h1{
+    color: whitesmoke;
+}
+
+.playlist-info {
+    color: whitesmoke;
+    padding-left: 20px;
+}
+
+.playlist-privacidade {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.playlist-titulo {
+    font-size: 86px;
+    font-weight: 1000;
+    margin-top: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.playlist-descricao {
+    font-size: 16px;
+    font-weight: 480;
+    margin-top: 18px;
+    color: darkgrey;
+}
+
+.playlist-stats {
+    position: relative;
+    top: 6px;
+}
+
+.playlist-stats span:first-of-type {
+    font-weight: 1000;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.playlist-musicas-container {
+    padding: 20px;
+}
+
+.playlist-musicas {
+    margin-top: 20px;
+}
+
+.playlist-musicas table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.playlist table tr td, .playlist-musicas tr th {
+    padding: 10px;
+    color: #CACACA;
+}
+
+.playlist-musicas table tr th {
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.playlist-musicas table tr:first-of-type {
+     border-bottom: 1px solid #CACACA;;
+}
+
+.playlist-musicas table th {
+    /* text-align: left; */
+}
+
+.imagem-musica img {
+    width: 34px;
+    height: 34px;
+}
+
+.nome-musica, .footer-player-esquerda-nome-musica {
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+}
+
+.linhaPesquisa{
+    height: 50px;
+}
+
+.artista-musica, .duracao-musica, tr td:first-of-type {
+    font-size: 14px;
+    margin-top: 6px;
+    color: #848485;
+}
+
+.titulo-musica {
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+    height: 50px;
+}
+
+.botao-musica{
+    display: none;
+}
+
+tr:hover .titulo-musica, tr:hover .artista-musica, tr:hover .duracao-musica, tr:hover .imagem-musica, tr:hover .id-musica{
+    background-color:#8484853a;
+    cursor: pointer;
+}
