@@ -1,4 +1,4 @@
-export default class UserServices {
+export default class FaqServices {
   constructor() {
     this.url = "http://localhost:3000/faq";
   }
