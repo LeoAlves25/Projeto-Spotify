@@ -10,6 +10,7 @@ import Cadastro from "./pages/cadastro/Cadastro";
 import Faq from "./pages/Faq/Faq";
 import Principal from "./pages/principal/index";
 import TelaProvisoria from "./pages/TelaProvisoria";
+import Perfil from "./pages/Perfil/Perfil";
 
 import Usuario from "./entities/Usuario";
 
@@ -35,6 +36,7 @@ function App() {
               <Route path="faq" element={<Faq />} />
               <Route path="principal" element={<Principal />} />
               <Route path="playlists/:id" element={<TelaProvisoria />} />
+              <Route path="Perfil" element={<Perfil />}/>
             </Routes>
             <ToastContainer />
           </UserContext.Provider>

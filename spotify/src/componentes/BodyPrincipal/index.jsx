@@ -4,6 +4,7 @@ import PlaylistCard from '../PlaylistCard'
 import  playlists  from '../../resources/playlists.json'
 
 const bodyPrincipal = (props) => {
+    
 
     return(
         <div className="bodyPrincipal" style={{ height: props.altura }}>

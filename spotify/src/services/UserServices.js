@@ -6,6 +6,22 @@ export default class UserServices {
     this.url = "http://localhost:3000/user";
   }
 
+  async getSingleUser(user){
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    }
+
+    var user;
+  
+    await fetch(`${this.url}?firstName=${user}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => (user = result))
+      .catch((error) => console.log("error", error));
+
+    return user;
+  }
+
   async postUser(usuario) {
     var requestOptions = {
       method: "POST",
