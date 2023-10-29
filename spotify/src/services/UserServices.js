@@ -1,5 +1,7 @@
 import { toast } from "react-toastify";
 import Usuario from "../entities/Usuario";
+import axios from 'axios';
+
 
 export default class UserServices {
   constructor() {
@@ -22,6 +24,46 @@ export default class UserServices {
     return user;
   }
 
+  
+  async putUser(id, usuario){ 
+    try{
+      const response = await axios.put(`${this.url}/${id}`, usuario);
+    
+      if (response.status === 200) {
+        console.log('Recurso atualizado com sucesso:', response.data);
+        toast.success("Atualização realizada com sucesso", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return true;
+      } else {
+        toast.error("Erro ao atualizar as informações", {
+          theme: "colored",
+          onOpen: () => {
+            return false;
+          },
+         })
+        return false;
+      }
+    }
+    catch (erro){
+        toast.error("Erro ao atualizar as informações", {
+        theme: "colored",
+        onOpen: () => {
+          return false;
+        },
+       })
+    }
+  }
+
+  
+
   async postUser(usuario) {
     var requestOptions = {
       method: "POST",
@@ -31,6 +73,8 @@ export default class UserServices {
       },
       body: JSON.stringify(usuario),
     };
+
+    
 
     let postado = await fetch(this.url, requestOptions)
       .then((response) => response.json())
@@ -60,6 +104,8 @@ export default class UserServices {
 
     return true;
   }
+
+
 
   async verificarEmail(email) {
     var requestOptions = {
