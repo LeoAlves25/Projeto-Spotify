@@ -1,14 +1,19 @@
 import "./PesquisarMusica.css";
 import "../PlaylistEspecifica/PlaylistEspecifica.css";
 import React, { useState, useEffect } from "react";
-
 import MusicService from "../../services/MusicService";
+import PlaylistService from "../../services/PlaylistsServices";
 
-const PesquisarMusica = () => {
+const PesquisarMusica = ({ playlist, musicas, setMusicas }) => {
   const musicServices = new MusicService();
-
+  const PlaylistServices = new PlaylistService();
   const [music, setMusic] = useState([]);
   const [filter, setFilter] = useState('');
+  
+  const generateUniqueId = () => {
+    return Math.floor( Math.random() * 100) + 1;
+  };
+
 
   var musicFiltred = [];
 
@@ -27,6 +32,27 @@ const PesquisarMusica = () => {
       song.artista.toLowerCase().includes(searchValue)
     );
   });
+  const handleAddToPlaylist = (musica) => {
+    if (playlist) {
+      const novaMusica = {
+        id: generateUniqueId(),
+        titulo: musica.titulo,
+        artista: musica.artista,
+        duracao: musica.duracao,
+        nome_arquivo_audio: musica.nome_arquivo_audio,
+      };
+
+      const updatedMusicas = [...musicas, novaMusica];
+      setMusicas(updatedMusicas);
+
+      PlaylistServices.updatePlaylist(playlist.id, { ...playlist, musicas: updatedMusicas }).catch((error) => {
+          console.error("Erro ao atualizar a playlist: ", error);
+        });
+    } else {
+      console.error("Nenhuma playlist selecionada ");
+    }
+  };
+
 
   return (
     <div>
@@ -67,7 +93,10 @@ const PesquisarMusica = () => {
 
                         <td className="artista-musica">{musica.artista}</td>
                         <td className="duracao-musica">{musica.duracao}</td>
-                      </tr>
+                        <td class="botoes">
+                              <button onClick={() => handleAddToPlaylist(musica)}>Adicionar</button>
+                        </td>
+                        </tr>
                     );
                   })}
                 </table>

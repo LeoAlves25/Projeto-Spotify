@@ -1,4 +1,4 @@
-import './bodyPrincipal.css'
+import './BodyPrincipal.css'
 import HeaderPrincipal from '../HeaderPrincipal'
 import PlaylistCard from '../PlaylistCard'
 import  playlists  from '../../resources/playlists.json'

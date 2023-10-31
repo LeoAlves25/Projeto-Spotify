@@ -31,7 +31,7 @@ export default function Perfil() {
     const getUserLogado = async () => {
         dados = await userServices.getSingleUser(JSON.parse(localStorage.getItem("usuarioNome")))
         setUser(dados[0]);  
-
+        
     };
     useEffect(() => {
         getUserLogado();

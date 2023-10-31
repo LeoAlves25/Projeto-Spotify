@@ -1,22 +1,55 @@
 import "./PlaylistEspecifica.css";
 import HeaderPrincipal from "../HeaderPrincipal";
 import PesquisarMusica from "../PesquisarMusica";
-
 import playlists from "../../resources/playlists.json";
 import { useLocation } from "react-router";
+import PlaylistsServices from "../../services/PlaylistsServices";
+import { useEffect, useState } from "react";
 
 const PlaylistEspecifica = ({ onMusicaClick }) => {
   const location = useLocation();
-  let playlist = playlists[location.state.id];
-  let musicas = playlist.musicas.map((musica) => {
-    return musica;
-  });
-  let tamanhoPlaylist = playlist.musicas.length;
+
+  const [playlist, setPlaylist] = useState({});
+  const [musicas, setMusicas] = useState([]);
+  const playlistService = new PlaylistsServices();
+
+  useEffect(() => {
+    playlistService.getPlaylists().then((playlists) => {
+        const playlistId = location.state.id+1;
+        const selectedPlaylist = playlists.find(playlist => playlist.id === playlistId);
+
+        if (selectedPlaylist) {
+          setPlaylist(selectedPlaylist);
+          setMusicas(selectedPlaylist.musicas);
+        }
+      })
+      .catch((error) => {
+        console.log("Erro ao buscar a playlist: ", error);
+      });
+  }, [location]);
+    console.log(playlist)
+
+
 
   function handleSaveMusica(musicaId) {
     onMusicaClick(musicaId);
   }
 
+  const handleDeleteMusic = (musicId) => {
+    const updatedMusicas = musicas.filter((musica) => musica.id !== musicId);
+    const updatedPlaylist = { ...playlist, musicas: updatedMusicas };
+
+    playlistService.updatePlaylist(playlist.id, updatedPlaylist).then((response) => {
+      setMusicas(updatedMusicas);
+    }).catch((error) => {
+      console.log("Erro ao atualizar a playlist: ", error);
+      console.log(playlist.id)
+      console.log(updatedPlaylist)
+    });
+  };
+
+
+  
   return (
     <div className="BodyPlaylistEspecifica">
       <div className="BodyPlaylistEspecifica-content">
@@ -34,8 +67,7 @@ const PlaylistEspecifica = ({ onMusicaClick }) => {
             <div className="playlist-titulo">{playlist.nome_playlist}</div>
             <div className="playlist-descricao">{playlist.descricao}</div>
             <div className="playlist-stats">
-              <span>{playlist.criador} • </span>
-              <span>{tamanhoPlaylist} músicas</span>
+            <span>{playlist.criador ? `${playlist.criador.firstName} ${playlist.criador.lastName}` : "Nome do Criador não disponível"} •</span>
             </div>
           </div>
         </div>
@@ -52,7 +84,7 @@ const PlaylistEspecifica = ({ onMusicaClick }) => {
               {musicas.map((musica) => {
                 return (
                   <tr
-                    onClick={() => handleSaveMusica(musica.nome_arquivo_audio)}
+                   
                   >
                     <td className="id-musica">{musica.id}</td>
                     <td className="botao-musica">
@@ -67,12 +99,20 @@ const PlaylistEspecifica = ({ onMusicaClick }) => {
 
                     <td className="artista-musica">{musica.artista}</td>
                     <td className="duracao-musica">{musica.duracao}</td>
+                    <td className="botoes">
+                    <button onClick={() => handleSaveMusica(musica.nome_arquivo_audio)}>
+                        Play
+                      </button>
+                      <button onClick={() => handleDeleteMusic(musica.id)}>
+                        Excluir
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
             </table>
           </div>
-          <PesquisarMusica />
+          <PesquisarMusica playlist={playlist} musicas={musicas} setMusicas={setMusicas} />
         </div>
       </div>
     </div>

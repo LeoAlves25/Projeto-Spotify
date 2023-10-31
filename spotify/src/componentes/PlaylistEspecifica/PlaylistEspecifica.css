@@ -124,7 +124,8 @@
     display: none;
 }
 
-tr:hover .titulo-musica, tr:hover .artista-musica, tr:hover .duracao-musica, tr:hover .imagem-musica, tr:hover .id-musica{
-    background-color:#8484853a;
-    cursor: pointer;
+tr:hover .titulo-musica, tr:hover .botoes, tr:hover .artista-musica, tr:hover .duracao-musica, tr:hover .imagem-musica, tr:hover .id-musica {
+    background-color: #8484853a;
+    transition: background-color 0.3s ease;
 }
+
