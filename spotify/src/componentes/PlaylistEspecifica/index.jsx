@@ -12,6 +12,7 @@ const PlaylistEspecifica = ({ onMusicaClick }) => {
   const [playlist, setPlaylist] = useState({});
   const [musicas, setMusicas] = useState([]);
   const playlistService = new PlaylistsServices();
+  const user = JSON.parse(localStorage.getItem("usuarioEmail"));
 
   useEffect(() => {
     playlistService.getPlaylists().then((playlists) => {
@@ -36,17 +37,27 @@ const PlaylistEspecifica = ({ onMusicaClick }) => {
   }
 
   const handleDeleteMusic = (musicId) => {
-    const updatedMusicas = musicas.filter((musica) => musica.id !== musicId);
-    const updatedPlaylist = { ...playlist, musicas: updatedMusicas };
-
-    playlistService.updatePlaylist(playlist.id, updatedPlaylist).then((response) => {
-      setMusicas(updatedMusicas);
-    }).catch((error) => {
-      console.log("Erro ao atualizar a playlist: ", error);
-      console.log(playlist.id)
-      console.log(updatedPlaylist)
-    });
+    console.log(playlist.criador.email)
+    console.log(user)
+    console.log(playlist.criador.email===user)
+    if (playlist && user === playlist.criador.email) {
+      const updatedMusicas = musicas.filter((musica) => musica.id !== musicId);
+      const updatedPlaylist = { ...playlist, musicas: updatedMusicas };
+  
+      playlistService.updatePlaylist(playlist.id, updatedPlaylist)
+        .then((response) => {
+          setMusicas(updatedMusicas);
+        })
+        .catch((error) => {
+          console.log("Erro ao atualizar a playlist: ", error);
+          console.log(playlist.id);
+          console.log(updatedPlaylist);
+        });
+    } else {
+      console.error("Você não tem permissão para excluir músicas desta playlist.");
+    }
   };
+  
 
 
   

@@ -27,6 +27,13 @@
       "email": "gijo@email.com",
       "password": "12345678",
       "id": 4
+    },
+    {
+      "firstName": "LEO",
+      "lastName": "BAT",
+      "email": "leo@leo.com",
+      "password": "12345678",
+      "id": 5
     }
   ],
   "playlists": [
@@ -38,25 +45,18 @@
         "id": 1,
         "firstName": "Adm",
         "lastName": "Adm",
-        "email": "adm@email.com",
+        "email": "leo@leo.com",
         "password": "123"
       },
       "capa": "/IMG/PlaylistClassicaCapa.jpg",
       "public": true,
       "musicas": [
         {
-          "id": 2,
-          "titulo": "Prelude to Act 1 Of Carmen",
-          "artista": "Bizet",
-          "duracao": "2:15",
-          "nome_arquivo_audio": "/MUSICAS/Bizet - Prelude to Act 1 Of Carmen.mp3"
-        },
-        {
-          "id": 3,
-          "titulo": "Minuet",
-          "artista": "Boccherini",
-          "duracao": "3:29",
-          "nome_arquivo_audio": "/MUSICAS/Boccherini - Minuet.mp3"
+          "id": 28,
+          "titulo": "Fur Elise",
+          "artista": "Beethoven",
+          "duracao": "3:09",
+          "nome_arquivo_audio": "/MUSICAS/Beethoven - Fur Elise.mp3"
         }
       ]
     },
@@ -88,22 +88,7 @@
       },
       "capa": "/IMG/handel.jpg",
       "public": true,
-      "musicas": [
-        {
-          "id": 80,
-          "titulo": "Fur Elise",
-          "artista": "Beethoven",
-          "duracao": "3:09",
-          "nome_arquivo_audio": "/MUSICAS/Beethoven - Fur Elise.mp3"
-        },
-        {
-          "id": 6,
-          "titulo": "Fur Elise",
-          "artista": "Beethoven",
-          "duracao": "3:09",
-          "nome_arquivo_audio": "/MUSICAS/Beethoven - Fur Elise.mp3"
-        }
-      ]
+      "musicas": []
     },
     {
       "id": 4,

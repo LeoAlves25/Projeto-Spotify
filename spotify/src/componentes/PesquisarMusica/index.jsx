@@ -9,7 +9,8 @@ const PesquisarMusica = ({ playlist, musicas, setMusicas }) => {
   const PlaylistServices = new PlaylistService();
   const [music, setMusic] = useState([]);
   const [filter, setFilter] = useState('');
-  
+  const user = JSON.parse(localStorage.getItem("usuarioEmail"));
+
   const generateUniqueId = () => {
     return Math.floor( Math.random() * 100) + 1;
   };
@@ -33,7 +34,10 @@ const PesquisarMusica = ({ playlist, musicas, setMusicas }) => {
     );
   });
   const handleAddToPlaylist = (musica) => {
-    if (playlist) {
+    console.log(user)
+    console.log(playlist.criador.email)
+
+    if (playlist && user === playlist.criador.email) {
       const novaMusica = {
         id: generateUniqueId(),
         titulo: musica.titulo,
