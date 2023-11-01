@@ -16,7 +16,7 @@ const HeaderPrincipal = () => {
             <div className='topNavbar__links'>
                 
                 <Link to='/FAQ'>FAQ</Link>
-                <Link to='/Perfil'>perfil</Link>
+                <Link to='/Perfil'>Perfil</Link>
                 <Link to='/' onClick={()=>{logout()}}>Sair</Link>
                 
             </div>
