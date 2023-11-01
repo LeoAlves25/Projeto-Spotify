@@ -10,7 +10,7 @@
     {
       "id": 2,
       "firstName": "cairo",
-      "lastName": "Queiros",
+      "lastName": "Vidal",
       "email": "cairo@email.com",
       "password": "123"
     },
@@ -96,34 +96,36 @@
       },
       "capa": "/IMG/handel.jpg",
       "public": true,
-      "musicas": [{
-        "id": 4,
-        "titulo": "Arrival of te Queen of Sheba",
-        "artista": "Handel",
-        "duracao": "3:27",
-        "nome_arquivo_audio": "/MUSICAS/Händel  - Arrival of te Queen of Sheba.mp3"
-      },
-      {
-        "id": 5,
-        "titulo": "Hallelujah from the Messiah",
-        "artista": "Handel",
-        "duracao": "3:45",
-        "nome_arquivo_audio": "/MUSICAS/Händel   Hallelujah from the Messiah.mp3"
-      },
-      {
-        "id": 6,
-        "titulo": "La Rejouissance",
-        "artista": "Handel",
-        "duracao": "3:29",
-        "nome_arquivo_audio": "/MUSICAS/Händel   La Rejouissance from Royal Fireworks Music.mp3"
-      },
-      {
-        "id": 7,
-        "titulo": "Ombra Mai Fu",
-        "artista": "Handel",
-        "duracao": "2:50",
-        "nome_arquivo_audio": "/MUSICAS/Händel - Ombra Mai Fu.mp3"
-      }]
+      "musicas": [
+        {
+          "id": 4,
+          "titulo": "Arrival of te Queen of Sheba",
+          "artista": "Handel",
+          "duracao": "3:27",
+          "nome_arquivo_audio": "/MUSICAS/Händel  - Arrival of te Queen of Sheba.mp3"
+        },
+        {
+          "id": 5,
+          "titulo": "Hallelujah from the Messiah",
+          "artista": "Handel",
+          "duracao": "3:45",
+          "nome_arquivo_audio": "/MUSICAS/Händel   Hallelujah from the Messiah.mp3"
+        },
+        {
+          "id": 6,
+          "titulo": "La Rejouissance",
+          "artista": "Handel",
+          "duracao": "3:29",
+          "nome_arquivo_audio": "/MUSICAS/Händel   La Rejouissance from Royal Fireworks Music.mp3"
+        },
+        {
+          "id": 7,
+          "titulo": "Ombra Mai Fu",
+          "artista": "Handel",
+          "duracao": "2:50",
+          "nome_arquivo_audio": "/MUSICAS/Händel - Ombra Mai Fu.mp3"
+        }
+      ]
     },
     {
       "id": 4,

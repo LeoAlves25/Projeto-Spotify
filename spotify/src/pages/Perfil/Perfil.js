@@ -75,6 +75,10 @@ export default function Perfil() {
         let result =userServices.putUser(userAtualizado.id, userAtualizado);
 
         if (result){
+
+            localStorage.setItem("usuarioNome", JSON.stringify(userAtualizado.firstName));
+            localStorage.setItem("usuarioEmail", JSON.stringify(userAtualizado.email));
+
             navigate("/principal");
         }
         console.log(userAtualizado);
