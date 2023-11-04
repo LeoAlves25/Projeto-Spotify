@@ -21,9 +21,9 @@ const Principal = () => {
   useEffect(() => {
     const saveUsuario = localStorage.getItem("usuarioNome");
 
-    if(saveUsuario){
-        const usuarioParse = JSON.parse(saveUsuario);
-        setUsuario(usuarioParse);
+    if (saveUsuario) {
+      const usuarioParse = JSON.parse(saveUsuario);
+      setUsuario(usuarioParse);
     }
   }, []);
 

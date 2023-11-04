@@ -19,9 +19,8 @@ export const UserLogadoContext = createContext();
 function App() {
   var usuario = new Usuario("Adm", "Adm", "adm@email.com", "123");
 
-  var [usuarioLogado, setUsuarioLogado] = useState({});
-
-  var [usuarios, setUsuarios] = useState([usuario]);
+  const [usuarioLogado, setUsuarioLogado] = useState({});
+  const [usuarios, setUsuarios] = useState([usuario]);
 
   return (
     <>

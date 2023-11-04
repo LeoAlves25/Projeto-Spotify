@@ -68,73 +68,6 @@
       ]
     },
     {
-      "id": 2,
-      "nome_playlist": "Bethoven",
-      "descricao": "As melhores de Bethoven",
-      "criador": {
-        "id": 2,
-        "firstName": "Cairo",
-        "lastName": "Q",
-        "email": "cairo@email.com",
-        "password": "123"
-      },
-      "capa": "/IMG/bethoven.jpg",
-      "public": true,
-      "musicas": [
-        {
-          "id": 1,
-          "titulo": "Fur Elise",
-          "artista": "Beethoven",
-          "duracao": "3:09",
-          "nome_arquivo_audio": "/MUSICAS/Beethoven - Fur Elise.mp3"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "nome_playlist": "Handel",
-      "descricao": "Só as top do Handel",
-      "criador": {
-        "id": 2,
-        "firstName": "Cairo",
-        "lastName": "Q",
-        "email": "cairo@email.com",
-        "password": "123"
-      },
-      "capa": "/IMG/handel.jpg",
-      "public": true,
-      "musicas": [
-        {
-          "id": 4,
-          "titulo": "Arrival of te Queen of Sheba",
-          "artista": "Handel",
-          "duracao": "3:27",
-          "nome_arquivo_audio": "/MUSICAS/Händel  - Arrival of te Queen of Sheba.mp3"
-        },
-        {
-          "id": 5,
-          "titulo": "Hallelujah from the Messiah",
-          "artista": "Handel",
-          "duracao": "3:45",
-          "nome_arquivo_audio": "/MUSICAS/Händel   Hallelujah from the Messiah.mp3"
-        },
-        {
-          "id": 6,
-          "titulo": "La Rejouissance",
-          "artista": "Handel",
-          "duracao": "3:29",
-          "nome_arquivo_audio": "/MUSICAS/Händel   La Rejouissance from Royal Fireworks Music.mp3"
-        },
-        {
-          "id": 7,
-          "titulo": "Ombra Mai Fu",
-          "artista": "Handel",
-          "duracao": "2:50",
-          "nome_arquivo_audio": "/MUSICAS/Händel - Ombra Mai Fu.mp3"
-        }
-      ]
-    },
-    {
       "id": 4,
       "nome_playlist": "Mozart",
       "descricao": "Uma coleção das músicas de Mozart",
@@ -170,6 +103,162 @@
           "nome_arquivo_audio": "/MUSICAS/Mozart - Le nozze di Figaro.mp3"
         }
       ]
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": [
+        {
+          "id": 1,
+          "firstName": "Adm",
+          "lastName": "Adm",
+          "email": "adm@email.com",
+          "password": "123"
+        }
+      ],
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 5
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": [
+        {
+          "id": 1,
+          "firstName": "Adm",
+          "lastName": "Adm",
+          "email": "adm@email.com",
+          "password": "123"
+        }
+      ],
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 6
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": {
+        "id": 1,
+        "firstName": "Adm",
+        "lastName": "Adm",
+        "email": "adm@email.com",
+        "password": "123"
+      },
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 12
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": {
+        "id": 1,
+        "firstName": "Adm",
+        "lastName": "Adm",
+        "email": "adm@email.com",
+        "password": "123"
+      },
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [
+        {}
+      ],
+      "id": 13
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": {
+        "id": 2,
+        "firstName": "Cairo",
+        "lastName": "Q",
+        "email": "cairo@email.com",
+        "password": "123"
+      },
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 14
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": {
+        "firstName": "Leo",
+        "lastName": "Castro",
+        "email": "leo@email.com",
+        "password": "123",
+        "id": 3
+      },
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 15
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": {
+        "id": 1,
+        "firstName": "Adm",
+        "lastName": "Adm",
+        "email": "adm@email.com",
+        "password": "123"
+      },
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 17
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": {
+        "firstName": "Leo",
+        "lastName": "Castro",
+        "email": "leo@email.com",
+        "password": "123",
+        "id": 3
+      },
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 18
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": {
+        "firstName": "Leo",
+        "lastName": "Castro",
+        "email": "leo@email.com",
+        "password": "123",
+        "id": 3
+      },
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 19
+    },
+    {
+      "nome_playlist": "Sua Playlist",
+      "descricao": "Descrição da sua playlist",
+      "criador": {
+        "firstName": "Leo",
+        "lastName": "Castro",
+        "email": "leo@email.com",
+        "password": "123",
+        "id": 3
+      },
+      "capa": "/IMG/playlist.png",
+      "public": false,
+      "musicas": [],
+      "id": 20
     }
   ],
   "musics": [

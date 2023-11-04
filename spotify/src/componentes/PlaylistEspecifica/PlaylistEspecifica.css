@@ -31,6 +31,8 @@
 }
 
 .playlist-info {
+    display: flex;
+    flex-direction: column;
     color: whitesmoke;
     padding-left: 20px;
 }
@@ -120,8 +122,16 @@
     flex-direction: row;
 }
 
-.botao-musica{
+.botao-musica {
     display: none;
+}
+
+.delete-playlist-btn {
+    background-color: aliceblue;
+    height: 50px;
+    width: 100px;
+    border-radius: 15px;
+    border: transparent;
 }
 
 tr:hover .titulo-musica, tr:hover .artista-musica, tr:hover .duracao-musica, tr:hover .imagem-musica, tr:hover .id-musica{
