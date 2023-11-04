@@ -29,19 +29,15 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
       const response = await api.get(`/playlists/${location.state.id}`);
       console.log('Resposta da API:', response.data);
       setPlaylistClicada(response.data);
+      setMusicas(response.data.musicas);
     } catch (error) {
       console.error('Erro ao buscar os dados da playlist:', error);
     }
   }
 
-  useEffect(() => {
-    debugger
-    console.log("CREU");
-    getPlaylistClicada();
+  useEffect(() =>{
+     getPlaylistClicada();
   }, []);
-
-  console.log(playlistClicada);
-  console.log(location.state.id);
 
   return (
     <div className="BodyPlaylistEspecifica">
@@ -60,8 +56,8 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
             <div className="playlist-titulo">{playlistClicada.nome_playlist}</div>
             <div className="playlist-descricao">{playlistClicada.descricao}</div>
             <div className="playlist-stats">
-              <span>{playlistClicada.criador.firstName} • </span>
-              <span>{playlistClicada.musicas.length} músicas</span>
+              <span>{playlistClicada.criador?.firstName} • </span>
+              <span>{playlistClicada.musicas?.length} músicas</span>
             </div>
           </div>
           <button
