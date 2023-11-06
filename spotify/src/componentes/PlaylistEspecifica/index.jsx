@@ -20,7 +20,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
 
   useEffect(() => {
     playlistService.getPlaylists().then((playlists) => {
-        const playlistId = location.state.id+1;
+        const playlistId = location.state.id;
         const selectedPlaylist = playlists.find(playlist => playlist.id === playlistId);
 
         if (selectedPlaylist) {
