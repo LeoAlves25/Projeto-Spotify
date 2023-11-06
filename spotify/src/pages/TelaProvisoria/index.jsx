@@ -8,13 +8,16 @@ import HeaderPrincipal from "../../componentes/HeaderPrincipal"
 import { useState } from "react"
 
 const TelaProvisoria = () => {
-
     const [musicaUrl, setMusicaUrl] = useState(""); 
+    
 
     const handleMusicaClick = (novaMusicaUrl) => {
         console.log(`Música clicada: ${novaMusicaUrl}`);
         setMusicaUrl(novaMusicaUrl); 
     }
+
+    
+
     return (
         <div className="TelaProvisoria">
             <div className="telaProvisoria__body">
