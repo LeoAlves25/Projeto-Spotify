@@ -35,8 +35,8 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
     }
   }
 
-  useEffect(() =>{
-     getPlaylistClicada();
+  useEffect(() => {
+    getPlaylistClicada();
   }, []);
 
   return (
@@ -63,7 +63,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
           <button
             className="delete-playlist-btn"
             onClick={handleDeletePlaylist}
-          />
+          >Excluir</button>
         </div>
         <div className="playlist-musicas-container">
           <div className="playlist-musicas">

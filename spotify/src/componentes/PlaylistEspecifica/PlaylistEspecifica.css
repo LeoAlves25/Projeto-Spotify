@@ -19,6 +19,8 @@
     flex-direction: row;
     align-items: flex-start;
     margin-top: 10px;
+    justify-content: space-between;
+    padding: 30px;
 }
 
 .playlist-imagem {
@@ -132,6 +134,9 @@
     width: 100px;
     border-radius: 15px;
     border: transparent;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 200px;
 }
 
 tr:hover .titulo-musica, tr:hover .artista-musica, tr:hover .duracao-musica, tr:hover .imagem-musica, tr:hover .id-musica{

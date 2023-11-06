@@ -204,21 +204,6 @@
       "nome_playlist": "Sua Playlist",
       "descricao": "Descrição da sua playlist",
       "criador": {
-        "id": 1,
-        "firstName": "Adm",
-        "lastName": "Adm",
-        "email": "adm@email.com",
-        "password": "123"
-      },
-      "capa": "/IMG/playlist.png",
-      "public": false,
-      "musicas": [],
-      "id": 17
-    },
-    {
-      "nome_playlist": "Sua Playlist",
-      "descricao": "Descrição da sua playlist",
-      "criador": {
         "firstName": "Leo",
         "lastName": "Castro",
         "email": "leo@email.com",
