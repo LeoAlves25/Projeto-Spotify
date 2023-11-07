@@ -13,6 +13,7 @@ export default function Faq() {
 
   const getFaq = async () => {
     setFaq(await faqServices.getFaq());
+    console.log(faq);
   };
 
   useEffect(() => {
@@ -49,7 +50,7 @@ export default function Faq() {
               <Accordion>
                 {faq.map((el, idx) => (
                   <Accordion.Item key={idx} eventKey={idx}>
-                    <Accordion.Header>{faq[idx].enuciado}</Accordion.Header>
+                    <Accordion.Header>{faq[idx].enunciado}</Accordion.Header>
                     <Accordion.Body>{faq[idx].resposta}</Accordion.Body>
                   </Accordion.Item>
                 ))}

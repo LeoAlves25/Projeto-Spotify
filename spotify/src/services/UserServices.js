@@ -1,21 +1,21 @@
 import { toast } from "react-toastify";
 import Usuario from "../entities/Usuario";
-import axios from 'axios';
-
+import axios from "axios";
 
 export default class UserServices {
   constructor() {
     this.url = "http://localhost:3000/user";
+    this.url2 = "http://localhost:3002/user";
   }
 
-  async getSingleUser(user){
+  async getSingleUser(user) {
     var requestOptions = {
       method: "GET",
       redirect: "follow",
-    }
+    };
 
     var user;
-  
+
     await fetch(`${this.url}?firstName=${user}`, requestOptions)
       .then((response) => response.json())
       .then((result) => (user = result))
@@ -24,13 +24,12 @@ export default class UserServices {
     return user;
   }
 
-  
-  async putUser(id, usuario){ 
-    try{
+  async putUser(id, usuario) {
+    try {
       const response = await axios.put(`${this.url}/${id}`, usuario);
-    
+
       if (response.status === 200) {
-        console.log('Recurso atualizado com sucesso:', response.data);
+        console.log("Recurso atualizado com sucesso:", response.data);
         toast.success("Atualização realizada com sucesso", {
           position: "top-right",
           autoClose: 3000,
@@ -48,21 +47,18 @@ export default class UserServices {
           onOpen: () => {
             return false;
           },
-         })
+        });
         return false;
       }
-    }
-    catch (erro){
-        toast.error("Erro ao atualizar as informações", {
+    } catch (erro) {
+      toast.error("Erro ao atualizar as informações", {
         theme: "colored",
         onOpen: () => {
           return false;
         },
-       })
+      });
     }
   }
-
-  
 
   async postUser(usuario) {
     var requestOptions = {
@@ -73,8 +69,6 @@ export default class UserServices {
       },
       body: JSON.stringify(usuario),
     };
-
-    
 
     let postado = await fetch(this.url, requestOptions)
       .then((response) => response.json())
@@ -105,52 +99,30 @@ export default class UserServices {
     return true;
   }
 
-
-
   async verificarEmail(email) {
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+    var verificado = await axios.get(`${this.url2}/email=${email}`);
 
-    var verificado = await fetch(`${this.url}?email=${email}`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.length > 0) {
-          return false;
-        }
+    if (verificado.status === 500) return false;
+    if (verificado.status === 404) return false;
 
-        return true;
-      });
+    if (verificado.data) return false;
 
     return verificado;
   }
 
   async verificaUsuario(email, password) {
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+    var usuario = await axios
+      .post(`${this.url2}/login`, {
+        email: email,
+        password: password,
+      })
+      .catch(() => {});
 
-    var usuario = await fetch(
-      `${this.url}?email=${email}&password=${password}`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.length > 0) {
-          let usuarioLogado = new Usuario(
-            result[0].firstName,
-            result[0].lastName,
-            result[0].email
-          );
+    if (!usuario) return false;
 
-          return usuarioLogado;
-        }
+    if (usuario.status === 500) return false;
+    if (usuario.status === 404) return false;
 
-        return false;
-      });
-
-    return usuario;
+    return usuario.data;
   }
 }
