@@ -61,25 +61,15 @@ export default class UserServices {
   }
 
   async postUser(usuario) {
-    var requestOptions = {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuario),
-    };
 
-    let postado = await fetch(this.url, requestOptions)
-      .then((response) => response.json())
-      .catch(() =>
-        toast.error("Erro ao cadastrar usuário!", {
-          theme: "colored",
-          onOpen: () => {
-            return false;
-          },
-        })
-      );
+    let postado = await axios.post(this.url2, usuario).catch(()=>{
+      toast.error("Erro ao cadastrar usuário!", {
+        theme: "colored",
+        onOpen: () => {
+          return false;
+        },
+      })
+    })
 
     if (!postado) {
       return false;
