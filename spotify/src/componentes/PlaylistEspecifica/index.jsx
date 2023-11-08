@@ -19,6 +19,9 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
   const playlistService = new PlaylistsServices();
 
   useEffect(() => {
+    
+    getPlaylistClicada();
+
     playlistService
       .getPlaylists()
       .then((playlists) => {
@@ -36,7 +39,6 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
         console.log("Erro ao buscar a playlist: ", error);
       });
   }, [location]);
-  console.log(playlist);
 
   function handleSaveMusica(musicaId) {
     onMusicaClick(musicaId);
@@ -60,14 +62,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
     }
   }
 
-  useEffect(() => {
-    getPlaylistClicada();
-  }, []);
-
   const handleDeleteMusic = (musicId) => {
-    console.log(playlist.criador.email);
-    console.log(user);
-    console.log(playlist.criador.email === user);
     if (playlist && user === playlist.criador.email) {
       const updatedMusicas = musicas.filter((musica) => musica.id !== musicId);
       const updatedPlaylist = { ...playlist, musicas: updatedMusicas };
@@ -97,7 +92,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
         </div>
         <div className="playlist-content">
           <div className="playlist-imagem">
-            <img src={playlistClicada?.capa} />
+            <img src={playlistClicada?.capa} width={"250px"} height={"250px"}/>
           </div>
           <div className="playlist-info">
             <div className="playlist-privacidade">{playlistClicada?.public ? "Pública" : "Privada"}</div>
@@ -108,7 +103,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
               {playlistClicada?.descricao}
             </div>
             <div className="playlist-stats">
-              <span>{playlistClicada?.criador?.firstName} • </span>
+              <span>{playlistClicada.criador?.firstName} • </span>
               <span>{playlistClicada?.musicas?.length} músicas</span>
             </div>
           </div>

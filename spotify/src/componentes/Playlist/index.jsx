@@ -34,7 +34,7 @@ const Playlist = (props) => {
       state={{ id: props.id, privacidade: props.privacidade }}
     >
       <div className="playlist">
-        <img className="playlist__img" src="/IMG/playlist.png"></img>
+        <img className="playlist__img" src={props.img}></img>
         <div className="playlist__container-info">
           <h3 className="playlist__name">
             {props.nome ? props.nome : "Minha playlist"}
