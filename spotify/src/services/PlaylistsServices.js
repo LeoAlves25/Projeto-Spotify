@@ -34,4 +34,22 @@ export default class PlaylistService {
       updatedPlaylist
     );
   }
+
+  async getPublicPlaylists(){
+    var playlists = await axios.get(`${this.url2}/public`).catch((error) => console.log("error", error));
+
+    return playlists.data;
+  }
+
+  async getPrivatePlaylistsByUser(email){
+    var playlists = await axios.get(`${this.url2}/private/${email}`).catch((error) => console.log("error", error));
+
+    return playlists.data;
+  }
+
+  async getPlaylistsByUser(email){
+    var playlists = await axios.get(`${this.url2}/user/${email}`).catch((error) => console.log("error", error));
+
+    return playlists.data;
+  }
 }

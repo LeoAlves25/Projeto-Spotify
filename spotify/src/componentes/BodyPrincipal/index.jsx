@@ -2,9 +2,11 @@ import "./bodyPrincipal.css";
 import HeaderPrincipal from "../HeaderPrincipal";
 import PlaylistCard from "../PlaylistCard";
 import api from "../../services/Api";
+import PlaylistService from "../../services/PlaylistsServices";
 import { React, useState, useEffect } from "react";
 
 function BodyPrincipal(props) {
+  const playlistService = new PlaylistService();
   const [playlistsPublica, setPlaylistsPublicas] = useState([]);
   const [playlistsPrivadas, setPlaylistsPrivadas] = useState([]);
 
@@ -12,13 +14,13 @@ function BodyPrincipal(props) {
 
   useEffect(() => {
     async function getPublicPlaylists() {
-      const response = await api.get("/playlists?public=true");
-      setPlaylistsPublicas(response.data);
+      const response = await playlistService.getPublicPlaylists();
+      setPlaylistsPublicas(response);
     }
 
     async function getUserPlaylist() {
-      const response = await api.get(`/playlists?criador.email=${userEmail}`);
-      setPlaylistsPrivadas(response.data);
+      const response = await playlistService.getPrivatePlaylistsByUser(userEmail);
+      setPlaylistsPrivadas(response);
     }
 
     getPublicPlaylists();

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import './Sidebar.css'
 import Playlist from '../Playlist/'
 import { Link } from 'react-router-dom'
+import PlaylistService from '../../services/PlaylistsServices'
 import Principal from '../../pages/principal'
 import api from '../../services/Api'
 
 const Sidebar = (props) => {
+    const playlistService = new PlaylistService();
     const [playlistsPrivadas, setPlaylistsPrivadas] = useState([]);
     const [user, setUser] = useState({});
 
@@ -26,8 +28,8 @@ const Sidebar = (props) => {
 
     useEffect(() => {
         async function getUserPlaylist() {
-            const response = await api.get(`/playlists?criador.email=${userEmail}`);
-            setPlaylistsPrivadas(response.data);
+            const response = await playlistService.getPlaylistsByUser(userEmail);
+            setPlaylistsPrivadas(response);
         }
 
         async function getUserLoged() {
@@ -66,8 +68,7 @@ const Sidebar = (props) => {
                         ><img src='../IMG/createPlaylist.svg' /></button>
                     </div>
                     <div className="biblioteca__content">
-                        {playlistsPrivadas.map((playlist) => {
-                            if(playlist.public === false) {
+                        {playlistsPrivadas?.map((playlist) => {
                                 return(
                                     <Playlist
                                         key={playlist.id}
@@ -76,10 +77,10 @@ const Sidebar = (props) => {
                                         img={playlist.capa}
                                         nome={playlist.nome_playlist}
                                         desc={playlist.descricao}
-                                        user={playlist.firstName}
+                                        user={playlist.criador.firstName}
                                     />
                                 );
-                            }                            
+                                                       
                         })}
                     </div>
                 </section>

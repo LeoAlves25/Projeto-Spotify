@@ -110,12 +110,6 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
             <div className="playlist-stats">
               <span>{playlistClicada?.criador?.firstName} • </span>
               <span>{playlistClicada?.musicas?.length} músicas</span>
-              <span>
-                {playlist.criador
-                  ? `${playlist.criador.firstName} ${playlist.criador.lastName}`
-                  : "Nome do Criador não disponível"}{" "}
-                •
-              </span>
             </div>
           </div>
           <button
