@@ -39,10 +39,10 @@ export default function Perfil() {
       
 
     
-    usuario.firstName = user.firstName;
-    usuario.lastName = user.lastName;
-    usuario.email = user.email;
-    usuario.password = user.password;
+    // usuario.firstName = user?.firstName;
+    // usuario.lastName = user?.lastName;
+    // usuario.email = user?.email;
+    // usuario.password = user?.password;
  
     
 
@@ -96,7 +96,7 @@ export default function Perfil() {
         <form onSubmit = {atualizarBanco}className="justify-content-center" >
             <div className="form-group text-white">
                 <label className="d-flex" >firstsName</label>
-                <input type="text" className="form-control" onChange={atualizarInfo}id="firstName" name="firstName" defaultValue={usuario.firstName}></input>
+                <input type="text" className="form-control" onChange={atualizarInfo}id="firstName" name="firstName" defaultValue={usuario?.firstName}></input>
             </div>
             <div className="form-group text-white">
                 <label className="d-flex">lastName</label>

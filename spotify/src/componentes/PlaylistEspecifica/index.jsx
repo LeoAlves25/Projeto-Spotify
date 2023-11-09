@@ -22,22 +22,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
     
     getPlaylistClicada();
 
-    playlistService
-      .getPlaylists()
-      .then((playlists) => {
-        const playlistId = location.state.id;
-        const selectedPlaylist = playlists.find(
-          (playlist) => playlist.id === playlistId
-        );
-
-        if (selectedPlaylist) {
-          setPlaylist(selectedPlaylist);
-          setMusicas(selectedPlaylist.musicas);
-        }
-      })
-      .catch((error) => {
-        console.log("Erro ao buscar a playlist: ", error);
-      });
+    
   }, [location]);
 
   function handleSaveMusica(musicaId) {
@@ -54,6 +39,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
 
   async function getPlaylistClicada() {
     const response = await playlistService.getPlaylistById(location.state.id);
+    console.log(response)
     if (response) {
       setPlaylistClicada(response);
       setMusicas(response.musicas);
