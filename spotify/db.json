@@ -73,15 +73,7 @@
       },
       "capa": "/IMG/bethoven.jpg",
       "public": true,
-      "musicas": [
-        {
-          "id": 64,
-          "titulo": "Fur Elise",
-          "artista": "Beethoven",
-          "duracao": "3:09",
-          "nome_arquivo_audio": "/MUSICAS/Beethoven - Fur Elise.mp3"
-        }
-      ]
+      "musicas": []
     },
     {
       "id": 3,

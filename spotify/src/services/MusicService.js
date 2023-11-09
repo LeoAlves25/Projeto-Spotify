@@ -1,6 +1,6 @@
 export default class MusicServices {
     constructor() {
-      this.url = "http://localhost:3000/musics";
+      this.url = "http://localhost:3002/musics";
     }
   
     async getMusic() {
