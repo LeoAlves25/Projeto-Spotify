@@ -4,7 +4,8 @@ import axios from "axios";
 
 export default class UserServices {
   constructor() {
-    this.url = "http://localhost:3002/user";
+    this.url = "http://localhost:3000/user";
+    this.url2 = "http://localhost:3002/user";
   }
 
   async getSingleUser(user) {
