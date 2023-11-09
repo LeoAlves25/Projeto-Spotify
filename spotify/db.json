@@ -38,7 +38,7 @@
   ],
   "playlists": [
     {
-      "id": 1,
+      "id": 5,
       "nome_playlist": "Musicas Classicas",
       "descricao": "Uma coleção das minhas músicas preferidas",
       "criador": {
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 6,
       "nome_playlist": "Beethoven",
       "descricao": "As melhores de Beethoven",
       "criador": {
@@ -76,7 +76,7 @@
       "musicas": []
     },
     {
-      "id": 3,
+      "id": 7,
       "nome_playlist": "Handel",
       "descricao": "Só as top do Handel",
       "criador": {
@@ -120,7 +120,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 8,
       "nome_playlist": "Mozart",
       "descricao": "Uma coleção das músicas de Mozart",
       "criador": {
@@ -171,7 +171,7 @@
       "capa": "/IMG/playlist.png",
       "public": false,
       "musicas": [],
-      "id": 5
+      "id": 9
     },
     {
       "nome_playlist": "Sua Playlist",
@@ -188,7 +188,7 @@
       "capa": "/IMG/playlist.png",
       "public": false,
       "musicas": [],
-      "id": 6
+      "id": 10
     },
     {
       "nome_playlist": "Sua Playlist",
@@ -203,82 +203,15 @@
       "capa": "/IMG/playlist.png",
       "public": false,
       "musicas": [],
-      "id": 12
+      "id": 11
     },
     {
       "nome_playlist": "Sua Playlist",
       "descricao": "Descrição da sua playlist",
-      "criador": {
-        "id": 2,
-        "firstName": "Cairo",
-        "lastName": "Q",
-        "email": "cairo@email.com",
-        "password": "123"
-      },
-      "capa": "/IMG/playlist.png",
-      "public": false,
-      "musicas": [],
-      "id": 14
-    },
-    {
-      "nome_playlist": "Sua Playlist",
-      "descricao": "Descrição da sua playlist",
-      "criador": {
-        "firstName": "Leo",
-        "lastName": "Castro",
-        "email": "leo@email.com",
-        "password": "123",
-        "id": 3
-      },
       "capa": "/IMG/playlist.png",
       "public": false,
       "musicas": [],
       "id": 15
-    },
-    {
-      "nome_playlist": "Sua Playlist",
-      "descricao": "Descrição da sua playlist",
-      "criador": {
-        "firstName": "Leo",
-        "lastName": "Castro",
-        "email": "leo@email.com",
-        "password": "123",
-        "id": 3
-      },
-      "capa": "/IMG/playlist.png",
-      "public": false,
-      "musicas": [],
-      "id": 18
-    },
-    {
-      "nome_playlist": "Sua Playlist",
-      "descricao": "Descrição da sua playlist",
-      "criador": {
-        "firstName": "Leo",
-        "lastName": "Castro",
-        "email": "leo@email.com",
-        "password": "123",
-        "id": 3
-      },
-      "capa": "/IMG/playlist.png",
-      "public": false,
-      "musicas": [],
-      "id": 19
-    },
-    {
-      "nome_playlist": "Sua Playlist",
-      "descricao": "Descrição da sua playlist",
-      "criador": {
-        "firstName": "Leo",
-        "lastName": "Castro",
-        "email": "leo@email.com",
-        "password": "123",
-        "id": 3
-      },
-      "capa": "/IMG/playlist.png",
-      "public": false,
-      "musicas": [],
-      "id": 20
     }
   ],
   "musics": [
