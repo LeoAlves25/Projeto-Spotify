@@ -16,7 +16,7 @@ export default class UserServices {
 
     var user;
   
-    await fetch(`${this.url}/email=${user}`, requestOptions)
+    await fetch(`${this.url2}/email=${user}`, requestOptions)
       .then((response) => response.json())
       .then((result) => (user = result))
       .catch((error) => console.log("error", error));
@@ -24,9 +24,9 @@ export default class UserServices {
     return user;
   }
 
-  async putUser(id, usuario) {
+  async putUser1(id, usuario) {
     try {
-      const response = await axios.put(`${this.url}/${id}`, usuario);
+      const response = await axios.put(`${this.url2}/${id}`, usuario);
 
       if (response.status === 200) {
         console.log("Recurso atualizado com sucesso:", response.data);
@@ -60,10 +60,9 @@ export default class UserServices {
     }
   }
 
-  async putUser1(usuario){
-    console.log("-----------------------------")  
+  async putUser(usuario){
     console.log(usuario)
-    console.log("-----------------------------")
+    console.log("\n\n\n\n\n\n\n-------------\n\n\n\n")
     var requestOptions = {
       method: "PUT",
       headers: {
@@ -73,7 +72,7 @@ export default class UserServices {
       body: JSON.stringify(usuario),
     };
 
-    let postado = await fetch(`${this.url}`, requestOptions)
+    let postado = await fetch(`${this.url2}`, requestOptions)
       .then((response) => response.json())
       .catch(() =>
         toast.error("Erro ao atualizar perfil!", {
@@ -134,7 +133,7 @@ export default class UserServices {
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: true, 
       draggable: true,
       progress: undefined,
       theme: "colored",

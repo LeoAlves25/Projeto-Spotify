@@ -8,15 +8,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function Perfil() {
     const navigate = useNavigate();
-    const [user, setUser] = useState({
-        user_id: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: ''
-    });
+    const [user, setUser] = useState('');
     const [userAtualizado, setUserAtualizado] = useState({
-        user_id: '',
+        user_id: -1,
         firstName: '',  
         lastName: '',
         email: '',
@@ -31,7 +25,8 @@ export default function Perfil() {
     const getUserLogado = async () => {
         dados = await userServices.getSingleUser(JSON.parse(localStorage.getItem("usuarioEmail")))
         console.log(dados)
-        setUser(dados);  
+        setUser(dados)
+        console.log(user)
         
     };
     useEffect(() => {
@@ -58,7 +53,7 @@ export default function Perfil() {
 
     function atualizarBanco(e){
         e.preventDefault();
-        userAtualizado.user_id = user.user_id;
+        userAtualizado.user_id = user.id_user;
 
         if(userAtualizado.firstName === ''){
             userAtualizado.firstName = user.firstName;
@@ -73,7 +68,7 @@ export default function Perfil() {
             userAtualizado.password = user.password;
         }
 
-        let result =userServices.putUser(userAtualizado.user_id,userAtualizado);
+        let result =userServices.putUser(userAtualizado);
 
         if (result){
 
@@ -82,6 +77,7 @@ export default function Perfil() {
 
             navigate("/principal");
         }
+        console.log("eeeecasadadwaca")
         console.log(userAtualizado);
     }
 
