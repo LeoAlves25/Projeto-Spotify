@@ -9,35 +9,20 @@ import api from '../../services/Api'
 const Sidebar = (props) => {
     const playlistService = new PlaylistService();
     const [playlistsPrivadas, setPlaylistsPrivadas] = useState([]);
-    const [user, setUser] = useState({});
 
     const userEmail = JSON.parse(localStorage.getItem("usuarioEmail"));
 
     async function handleCreate() {
-        const response = await api.post("/playlists", {
-            nome_playlist: "Sua Playlist",
-            descricao: "Descrição da sua playlist",
-            criador: user[0],
-            capa: "/IMG/playlist.png",
-            public: false,
-            musicas: []
-        });
+        playlistService.createPlaylist(userEmail);
+        getUserPlaylist();
+    }
 
-        setPlaylistsPrivadas([...playlistsPrivadas, response.data]);
+    async function getUserPlaylist() {
+        const response = await playlistService.getPlaylistsByUser(userEmail);
+        setPlaylistsPrivadas(response);
     }
 
     useEffect(() => {
-        async function getUserPlaylist() {
-            const response = await playlistService.getPlaylistsByUser(userEmail);
-            setPlaylistsPrivadas(response);
-        }
-
-        async function getUserLoged() {
-            const response = await api.get(`/user?email=${userEmail}`);
-            setUser(response.data);
-        }
-
-        getUserLoged();
         getUserPlaylist();
     }, []);
 

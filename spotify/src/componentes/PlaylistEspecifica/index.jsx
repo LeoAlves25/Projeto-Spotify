@@ -4,41 +4,45 @@ import PesquisarMusica from "../PesquisarMusica";
 
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import api from "../../services/Api";
 
 import PlaylistsServices from "../../services/PlaylistsServices";
 
 const PlaylistEspecifica = ({ onMusicaClick }, props) => {
+  const playlistService = new PlaylistsServices();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [playlistClicada, setPlaylistClicada] = useState({});
   const [musicas, setMusicas] = useState([]);
-  const user = JSON.parse(localStorage.getItem("usuarioEmail"));
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const [playlist, setPlaylist] = useState({});
-  const playlistService = new PlaylistsServices();
 
-  useEffect(() => {
-    
-    getPlaylistClicada();
-
-    
-  }, [location]);
-
+  const user = JSON.parse(localStorage.getItem("usuarioEmail"));
+  const playlistID = location.state.id;
+  
   function handleSaveMusica(musicaId) {
     onMusicaClick(musicaId);
   }
-
+  
   async function handleDeletePlaylist() {
-    const response = await api
-      .delete(`/playlists/${location.state.id}`)
-      .then(() => {
+    if(playlistClicada.criador.email == user) {
+      playlistService.deletePlaylist(playlistID).then(() => {
         navigate("/principal");
+        toast.success("Playlist deletada com sucesso.", {
+          theme: "colored",
+        });
       });
-  }
+    } else {
+      toast.error("Apenas o criador pode deletar!", {
+        theme: "colored",
+      });
+    }
 
+  }
+  
   async function getPlaylistClicada() {
-    const response = await playlistService.getPlaylistById(location.state.id);
+    const response = await playlistService.getPlaylistById(playlistID);
     console.log(response)
     if (response) {
       setPlaylistClicada(response);
@@ -47,31 +51,35 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
       console.log("Erro ao buscar a playlist: ", response.error);
     }
   }
-
+  
   const handleDeleteMusic = (musicId) => {
     if (playlist && user === playlist.criador.email) {
       const updatedMusicas = musicas.filter((musica) => musica.id !== musicId);
       const updatedPlaylist = { ...playlist, musicas: updatedMusicas };
-
+      
       playlistService
-        .updatePlaylist(playlist.id, updatedPlaylist)
-        .then((response) => {
-          setMusicas(updatedMusicas);
-        })
-        .catch((error) => {
-          console.log("Erro ao atualizar a playlist: ", error);
-          console.log(playlist.id);
-          console.log(updatedPlaylist);
-        });
+      .updatePlaylist(playlist.id, updatedPlaylist)
+      .then((response) => {
+        setMusicas(updatedMusicas);
+      })
+      .catch((error) => {
+        console.log("Erro ao atualizar a playlist: ", error);
+        console.log(playlist.id);
+        console.log(updatedPlaylist);
+      });
     } else {
       console.error(
         "Você não tem permissão para excluir músicas desta playlist."
-      );
-    }
-  };
+        );
+      }
+    };
 
-  return (
-    <div className="BodyPlaylistEspecifica">
+    useEffect(() => {    
+      getPlaylistClicada();    
+    }, [location]);
+    
+    return (
+      <div className="BodyPlaylistEspecifica">
       <div className="BodyPlaylistEspecifica-content">
         <div className="playlist-top">
           <HeaderPrincipal />

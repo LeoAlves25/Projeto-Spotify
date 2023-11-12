@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default class PlaylistService {
+
   constructor() {
     this.url = "http://localhost:3000/playlists";
     this.url2 = "http://localhost:3002/playlist"
@@ -22,8 +23,8 @@ export default class PlaylistService {
     }
   }
 
-  async getPlaylistById(id){
-    var playlist = await axios.get(`${this.url2}/${id}`).catch((error) => console.log("error", error));
+  async getPlaylistById(id) {
+    const playlist = await axios.get(`${this.url2}/${id}`).catch((error) => console.log("error", error));
 
     return playlist.data;
   }
@@ -35,21 +36,31 @@ export default class PlaylistService {
     );
   }
 
-  async getPublicPlaylists(){
-    var playlists = await axios.get(`${this.url2}/public`).catch((error) => console.log("error", error));
+  async getPublicPlaylists() {
+    const playlists = await axios.get(`${this.url2}/public`).catch((error) => console.log("error", error));
 
     return playlists.data;
   }
 
-  async getPrivatePlaylistsByUser(email){
-    var playlists = await axios.get(`${this.url2}/private/${email}`).catch((error) => console.log("error", error));
+  async getPrivatePlaylistsByUser(email) {
+    const playlists = await axios.get(`${this.url2}/private/${email}`).catch((error) => console.log("error", error));
 
     return playlists.data;
   }
 
-  async getPlaylistsByUser(email){
-    var playlists = await axios.get(`${this.url2}/user/${email}`).catch((error) => console.log("error", error));
+  async getPlaylistsByUser(email) {
+    const playlists = await axios.get(`${this.url2}/user/${email}`).catch((error) => console.log("error", error));
 
     return playlists.data;
+  }
+
+  async createPlaylist(email) {
+    const response = await axios.post(`${this.url2}/create`, { email }).catch((error) => console.log("error ", error));
+    return response;
+  }
+
+  async deletePlaylist(idPlaylist) {
+    const response = await axios.delete(`${this.url2}/delete/${idPlaylist}`).catch((error) => console.log("error ", error));
+    return response;
   }
 }

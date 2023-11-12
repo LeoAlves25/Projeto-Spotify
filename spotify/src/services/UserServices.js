@@ -61,7 +61,6 @@ export default class UserServices {
   }
 
   async postUser(usuario) {
-
     let postado = await axios.post(this.url2, usuario).catch(()=>{
       toast.error("Erro ao cadastrar usuário!", {
         theme: "colored",
