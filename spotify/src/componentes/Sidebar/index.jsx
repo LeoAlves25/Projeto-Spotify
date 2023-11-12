@@ -13,8 +13,9 @@ const Sidebar = (props) => {
     const userEmail = JSON.parse(localStorage.getItem("usuarioEmail"));
 
     async function handleCreate() {
-        playlistService.createPlaylist(userEmail);
-        getUserPlaylist();
+        playlistService.createPlaylist(userEmail).then(()=>{
+            getUserPlaylist();
+        })
     }
 
     async function getUserPlaylist() {

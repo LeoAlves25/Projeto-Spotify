@@ -20,13 +20,13 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
 
   const user = JSON.parse(localStorage.getItem("usuarioEmail"));
   const playlistID = location.state.id;
-  
+
   function handleSaveMusica(musicaId) {
     onMusicaClick(musicaId);
   }
-  
+
   async function handleDeletePlaylist() {
-    if(playlistClicada.criador.email == user) {
+    if (playlistClicada.criador.email === user) {
       playlistService.deletePlaylist(playlistID).then(() => {
         navigate("/principal");
         toast.success("Playlist deletada com sucesso.", {
@@ -38,58 +38,59 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
         theme: "colored",
       });
     }
-
   }
-  
+
   async function getPlaylistClicada() {
     const response = await playlistService.getPlaylistById(playlistID);
-    console.log(response)
+    console.log(response);
     if (response) {
       setPlaylistClicada(response);
       setMusicas(response.musicas);
-    }else{
+    } else {
       console.log("Erro ao buscar a playlist: ", response.error);
     }
   }
-  
+
   const handleDeleteMusic = (musicId) => {
     if (playlist && user === playlist.criador.email) {
       const updatedMusicas = musicas.filter((musica) => musica.id !== musicId);
       const updatedPlaylist = { ...playlist, musicas: updatedMusicas };
-      
+
       playlistService
-      .updatePlaylist(playlist.id, updatedPlaylist)
-      .then((response) => {
-        setMusicas(updatedMusicas);
-      })
-      .catch((error) => {
-        console.log("Erro ao atualizar a playlist: ", error);
-        console.log(playlist.id);
-        console.log(updatedPlaylist);
-      });
+        .updatePlaylist(playlist.id, updatedPlaylist)
+        .then((response) => {
+          setMusicas(updatedMusicas);
+        })
+        .catch((error) => {
+          console.log("Erro ao atualizar a playlist: ", error);
+          console.log(playlist.id);
+          console.log(updatedPlaylist);
+        });
     } else {
       console.error(
         "Você não tem permissão para excluir músicas desta playlist."
-        );
-      }
-    };
+      );
+    }
+  };
 
-    useEffect(() => {    
-      getPlaylistClicada();    
-    }, [location]);
-    
-    return (
-      <div className="BodyPlaylistEspecifica">
+  useEffect(() => {
+    getPlaylistClicada();
+  }, [location]);
+
+  return (
+    <div className="BodyPlaylistEspecifica">
       <div className="BodyPlaylistEspecifica-content">
         <div className="playlist-top">
           <HeaderPrincipal />
         </div>
         <div className="playlist-content">
           <div className="playlist-imagem">
-            <img src={playlistClicada?.capa} width={"250px"} height={"250px"}/>
+            <img src={playlistClicada?.capa} width={"250px"} height={"250px"} />
           </div>
           <div className="playlist-info">
-            <div className="playlist-privacidade">{playlistClicada?.public ? "Pública" : "Privada"}</div>
+            <div className="playlist-privacidade">
+              {playlistClicada?.public ? "Pública" : "Privada"}
+            </div>
             <div className="playlist-titulo">
               {playlistClicada?.nome_playlist}
             </div>
@@ -119,34 +120,36 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
               </tr>
 
               {musicas?.map((musica) => {
-                return (
-                  <tr>
-                    <td className="id-musica">{musica.id}</td>
-                    <td className="botao-musica">
-                      <button>A</button>
-                    </td>
-                    <td className="titulo-musica">
-                      <div className="imagem-musica">
-                        <img src={playlistClicada?.capa} />
-                      </div>
-                      <div className="nome-musica">{musica.titulo}</div>
-                    </td>
-                    <td className="artista-musica">{musica.artista}</td>
-                    <td className="duracao-musica">{musica.duracao}</td>
-                    <td className="botoes">
-                      <button
-                        onClick={() =>
-                          handleSaveMusica(musica.nome_arquivo_audio)
-                        }
-                      >
-                        Play
-                      </button>
-                      <button onClick={() => handleDeleteMusic(musica.id)}>
-                        Excluir
-                      </button>
-                    </td>
-                  </tr>
-                );
+                if (musica.titulo != null) {
+                  return (
+                    <tr>
+                      <td className="id-musica">{musica.id}</td>
+                      <td className="botao-musica">
+                        <button>A</button>
+                      </td>
+                      <td className="titulo-musica">
+                        <div className="imagem-musica">
+                          <img src={playlistClicada?.capa} />
+                        </div>
+                        <div className="nome-musica">{musica.titulo}</div>
+                      </td>
+                      <td className="artista-musica">{musica.artista}</td>
+                      <td className="duracao-musica">{musica.duracao}</td>
+                      <td className="botoes">
+                        <button
+                          onClick={() =>
+                            handleSaveMusica(musica.nome_arquivo_audio)
+                          }
+                        >
+                          Play
+                        </button>
+                        <button onClick={() => handleDeleteMusic(musica.id)}>
+                          Excluir
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                }
               })}
             </table>
           </div>

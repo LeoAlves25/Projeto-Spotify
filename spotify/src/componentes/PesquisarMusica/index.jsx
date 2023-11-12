@@ -26,7 +26,7 @@ const PesquisarMusica = ({ playlist, musicas, setMusicas }) => {
     getMusic();
   },[]);
 
-  musicFiltred = music.filter((song) => {
+  musicFiltred = music?.filter((song) => {
     const searchValue = filter.toLowerCase();
     return (
       song.titulo.toLowerCase().includes(searchValue) ||
@@ -86,7 +86,7 @@ const PesquisarMusica = ({ playlist, musicas, setMusicas }) => {
                     <th>Artista</th>
                     <th>Duração</th>
                   </tr>
-                  {musicFiltred.map((musica) => {
+                  {musicFiltred?.map((musica) => {
                     return (
                       <tr className="linhaPesquisa">
                         <td className="id-musica">{musica.id}</td>
