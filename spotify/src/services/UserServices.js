@@ -15,8 +15,8 @@ export default class UserServices {
     };
 
     var user;
-
-    await fetch(`${this.url}?firstName=${user}`, requestOptions)
+  
+    await fetch(`${this.url2}/email=${user}`, requestOptions)
       .then((response) => response.json())
       .then((result) => (user = result))
       .catch((error) => console.log("error", error));
@@ -24,40 +24,47 @@ export default class UserServices {
     return user;
   }
 
-  async putUser(id, usuario) {
-    try {
-      const response = await axios.put(`${this.url}/${id}`, usuario);
+  async putUser(usuario){
+    console.log(usuario)
+    console.log("\n\n\n\n\n\n\n-------------\n\n\n\n")
+    var requestOptions = {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    };
 
-      if (response.status === 200) {
-        console.log("Recurso atualizado com sucesso:", response.data);
-        toast.success("Atualização realizada com sucesso", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        return true;
-      } else {
-        toast.error("Erro ao atualizar as informações", {
+    let postado = await fetch(`${this.url2}`, requestOptions)
+      .then((response) => response.json())
+      .catch(() =>
+        toast.error("Erro ao atualizar perfil!", {
           theme: "colored",
           onOpen: () => {
             return false;
           },
-        });
-        return false;
-      }
-    } catch (erro) {
-      toast.error("Erro ao atualizar as informações", {
-        theme: "colored",
-        onOpen: () => {
-          return false;
-        },
-      });
+        })
+      );
+
+    if (!postado) {
+      return false;
     }
+
+    toast.success("Usuário atualizado com sucesso!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+    return true;
+
+
   }
 
   async postUser(usuario) {
@@ -73,13 +80,13 @@ export default class UserServices {
     if (!postado) {
       return false;
     }
-
+    
     toast.success("Usuário cadastrado com sucesso!", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: true, 
       draggable: true,
       progress: undefined,
       theme: "colored",
