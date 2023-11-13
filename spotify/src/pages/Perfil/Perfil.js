@@ -24,9 +24,8 @@ export default function Perfil() {
     
     const getUserLogado = async () => {
         dados = await userServices.getSingleUser(JSON.parse(localStorage.getItem("usuarioEmail")))
-        console.log(dados)
         setUser(dados)
-        console.log(user)
+       
         
     };
     useEffect(() => {
@@ -77,8 +76,6 @@ export default function Perfil() {
 
             navigate("/principal");
         }
-        console.log("eeeecasadadwaca")
-        console.log(userAtualizado);
     }
 
     
