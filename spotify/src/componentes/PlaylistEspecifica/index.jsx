@@ -57,6 +57,8 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
         const response = await playlistService.deleteMusicPlaylist({
           id_playlist: playlistID,
           id_musica: musicId,
+        }).then(()=>{
+          getPlaylistClicada()
         });
 
         if (response.data) {

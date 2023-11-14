@@ -3,9 +3,13 @@ import "../PlaylistEspecifica/PlaylistEspecifica.css";
 import React, { useState, useEffect } from "react";
 import MusicService from "../../services/MusicService";
 import PlaylistService from "../../services/PlaylistsServices";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const PesquisarMusica = ({ playlist, musicas, setMusicas, criadorEmail }) => {
+  
+  const navigate = useNavigate();
+
   const musicServices = new MusicService();
   const PlaylistServices = new PlaylistService();
   const [music, setMusic] = useState([]);
@@ -38,21 +42,15 @@ const PesquisarMusica = ({ playlist, musicas, setMusicas, criadorEmail }) => {
   const handleAddToPlaylist = async (musica) => {
     console.log(criadorEmail);
     if (criadorEmail === user) {
-      const ids = {
-        id_playlist: playlist,
-        id_musica: musica.id_musics,
-      };
-
-      console.log(ids);
       try {
         const response = await PlaylistServices.createMusicPlaylist(
           playlist,
-          musica.id_musics
+          musica.id
         );
-        console.log(response.data);
 
         setMusicas((prevMusicas) => [...prevMusicas, musica]);
-        console.log("aoe");
+
+        
       } catch (error) {
         console.error(
           "Erro ao criar a relação entre música e playlist: ",

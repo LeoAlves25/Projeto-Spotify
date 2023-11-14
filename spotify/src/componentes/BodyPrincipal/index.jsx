@@ -1,4 +1,4 @@
-import "./BodyPrincipal.css";
+import "./bodyPrincipal.css";
 import HeaderPrincipal from "../HeaderPrincipal";
 import PlaylistCard from "../PlaylistCard";
 import api from "../../services/Api";
