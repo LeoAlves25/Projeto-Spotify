@@ -51,27 +51,32 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
     }
   }
 
-  const handleDeleteMusic = (musicId) => {
-    if (playlist && user === playlist.criador.email) {
-      const updatedMusicas = musicas.filter((musica) => musica.id !== musicId);
-      const updatedPlaylist = { ...playlist, musicas: updatedMusicas };
-
-      playlistService
-        .updatePlaylist(playlist.id, updatedPlaylist)
-        .then((response) => {
-          setMusicas(updatedMusicas);
-        })
-        .catch((error) => {
-          console.log("Erro ao atualizar a playlist: ", error);
-          console.log(playlist.id);
-          console.log(updatedPlaylist);
+  const handleDeleteMusic = async (musicId) => {
+    try {
+      if (playlistClicada.criador.email === user) {
+        const response = await playlistService.deleteMusicPlaylist({
+          id_playlist: playlistID,
+          id_musica: musicId,
+        }).then(()=>{
+          getPlaylistClicada()
         });
-    } else {
-      console.error(
-        "Você não tem permissão para excluir músicas desta playlist."
-      );
+
+        if (response.data) {
+          setMusicas((prevMusicas) =>
+            prevMusicas.filter((musica) => musica.id !== musicId)
+          );
+        } else {
+          console.error("Erro ao excluir a música da playlist.");
+        }
+      } else {
+        toast.error("Apenas o criador pode deletar a musica!", {
+          theme: "colored",
+        });}
+    } catch (error) {
+      console.error("Erro ao excluir a música da playlist: ", error);
     }
   };
+  
 
   useEffect(() => {
     getPlaylistClicada();
@@ -154,7 +159,8 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
             </table>
           </div>
           <PesquisarMusica
-            playlist={playlist}
+            criadorEmail={playlistClicada.criador?.email}
+            playlist={playlistID}
             musicas={musicas}
             setMusicas={setMusicas}
           />

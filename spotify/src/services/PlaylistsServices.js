@@ -63,4 +63,24 @@ export default class PlaylistService {
     const response = await axios.delete(`${this.url2}/delete/${idPlaylist}`).catch((error) => console.log("error ", error));
     return response;
   }
+
+  async createMusicPlaylist(id_playlist, id_musica) {
+    console.log("createmusicplaylist--")
+    const response = await axios.post(`${this.url2}/music/new`, {id_playlist, id_musica})
+    .catch((error) => console.log("error ", error));
+
+
+    return response;
+  }
+
+
+  async deleteMusicPlaylist({ id_playlist, id_musica }) {
+    console.log("deletemusicplaylist--");
+    
+    const response = await axios.delete(`${this.url2}/music/delete`, { data: { id_playlist, id_musica } })
+      .catch((error) => console.log("error ", error));
+  
+    return response;
+  }
+  
 }

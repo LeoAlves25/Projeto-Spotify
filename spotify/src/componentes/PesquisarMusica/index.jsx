@@ -3,8 +3,13 @@ import "../PlaylistEspecifica/PlaylistEspecifica.css";
 import React, { useState, useEffect } from "react";
 import MusicService from "../../services/MusicService";
 import PlaylistService from "../../services/PlaylistsServices";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const PesquisarMusica = ({ playlist, musicas, setMusicas }) => {
+const PesquisarMusica = ({ playlist, musicas, setMusicas, criadorEmail }) => {
+  
+  const navigate = useNavigate();
+
   const musicServices = new MusicService();
   const PlaylistServices = new PlaylistService();
   const [music, setMusic] = useState([]);
@@ -33,31 +38,32 @@ const PesquisarMusica = ({ playlist, musicas, setMusicas }) => {
       song.artista.toLowerCase().includes(searchValue)
     );
   });
-  const handleAddToPlaylist = (musica) => {
-    console.log(user)
-    console.log(playlist.criador.email)
 
-    if (playlist && user === playlist.criador.email) {
-      const novaMusica = {
-        id: generateUniqueId(),
-        titulo: musica.titulo,
-        artista: musica.artista,
-        duracao: musica.duracao,
-        nome_arquivo_audio: musica.nome_arquivo_audio,
-      };
+  const handleAddToPlaylist = async (musica) => {
+    console.log(criadorEmail);
+    if (criadorEmail === user) {
+      try {
+        const response = await PlaylistServices.createMusicPlaylist(
+          playlist,
+          musica.id
+        );
 
-      const updatedMusicas = [...musicas, novaMusica];
-      setMusicas(updatedMusicas);
+        setMusicas((prevMusicas) => [...prevMusicas, musica]);
 
-      PlaylistServices.updatePlaylist(playlist.id, { ...playlist, musicas: updatedMusicas }).catch((error) => {
-          console.error("Erro ao atualizar a playlist: ", error);
-        });
+        
+      } catch (error) {
+        console.error(
+          "Erro ao criar a relação entre música e playlist: ",
+          error
+        );
+      }
     } else {
-      console.error("Nenhuma playlist selecionada ");
+      toast.error("Apenas o criador pode adicionar a musica!", {
+        theme: "colored",
+      });
     }
   };
-
-
+  
   return (
     <div>
       <hr />
