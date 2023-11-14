@@ -38,19 +38,20 @@ const PesquisarMusica = ({ playlist, musicas, setMusicas }) => {
     console.log(user);
       const ids = {
         id_playlist: playlist,
-        id_musica: musica.id,     
+        id_musica: musica.id_musics,     
       };
   
       console.log(ids)
       try {
-        const response = await PlaylistServices.createMusicPlaylist(playlist, musica.id);
-        console.log(response.data); 
-        console.log("aoe")
+        const response = await PlaylistServices.createMusicPlaylist(playlist, musica.id_musics);
+        console.log(response.data);
+        
+        setMusicas((prevMusicas) => [...prevMusicas, musica]);
+        console.log("aoe");
       } catch (error) {
         console.error("Erro ao criar a relação entre música e playlist: ", error);
       }
-  
-  };
+    };
   
   return (
     <div>
