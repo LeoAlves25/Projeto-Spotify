@@ -19,8 +19,6 @@ export default function Perfil() {
 
     let dados;
     const userServices = new UserServices();
-
-    let usuario = new Usuario("","","","");
     
     const getUserLogado = async () => {
         dados = await userServices.getSingleUser(JSON.parse(localStorage.getItem("usuarioEmail")))
@@ -31,17 +29,6 @@ export default function Perfil() {
     useEffect(() => {
         getUserLogado();
       },[]);
-      
-
-    
-    // usuario.firstName = user?.firstName;
-    // usuario.lastName = user?.lastName;
-    // usuario.email = user?.email;
-    // usuario.password = user?.password;
- 
-    
-
-    
     
     function atualizarInfo(e){
         e.preventDefault();
@@ -90,19 +77,19 @@ export default function Perfil() {
         <form onSubmit = {atualizarBanco}className="justify-content-center" >
             <div className="form-group text-white">
                 <label className="d-flex" >firstsName</label>
-                <input type="text" className="form-control" onChange={atualizarInfo}id="firstName" name="firstName" defaultValue={usuario?.firstName}></input>
+                <input type="text" className="form-control" onChange={atualizarInfo}id="firstName" name="firstName" defaultValue={user.firstName}></input>
             </div>
             <div className="form-group text-white">
                 <label className="d-flex">lastName</label>
-                <input type="text" className="form-control" onChange={atualizarInfo} id="lastName" name="lastName" defaultValue={usuario.lastName}></input>
+                <input type="text" className="form-control" onChange={atualizarInfo} id="lastName" name="lastName" defaultValue={user.lastName}></input>
             </div>
             <div className="form-group text-white">
                 <label className="d-flex">email</label>
-                <input type="email" className="form-control" onChange={atualizarInfo} id="email" name="email" defaultValue={usuario.email}></input>
+                <input type="email" className="form-control" onChange={atualizarInfo} id="email" name="email" defaultValue={user.email}></input>
             </div>
             <div className="form-group text-white">
                 <label className="d-flex">password</label>
-                <input type="password" className="form-control" onChange={atualizarInfo} id="inputPassword" name="password" defaultValue={usuario.password}></input>
+                <input type="password" className="form-control" onChange={atualizarInfo} id="inputPassword" name="password" defaultValue={user.password}></input>
             </div>
             <br></br>
             <div><button type ="submit" className="btn btn-success btn-lg" >Confirmar</button></div>
