@@ -52,22 +52,24 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
   }
 
   const handleDeleteMusic = async (musicId) => {
-
-    
-    console.log("A---> "+playlistID, musicId);
     try {
-      const response = await playlistService.deleteMusicPlaylist({
-        id_playlist: playlistID,
-        id_musica: musicId
-      });
-      console.log(response.data);
-      console.log(musicas)
-      if (response.data) {
-        setMusicas((prevMusicas) => prevMusicas.filter((musica) => musica.id !== musicId));
+      if (playlistClicada.criador.email === user) {
+        const response = await playlistService.deleteMusicPlaylist({
+          id_playlist: playlistID,
+          id_musica: musicId,
+        });
+
+        if (response.data) {
+          setMusicas((prevMusicas) =>
+            prevMusicas.filter((musica) => musica.id !== musicId)
+          );
+        } else {
+          console.error("Erro ao excluir a música da playlist.");
+        }
       } else {
-        console.log("aq")
-        console.error("Erro ao excluir a música da playlist.");
-      }
+        toast.error("Apenas o criador pode deletar a musica!", {
+          theme: "colored",
+        });}
     } catch (error) {
       console.error("Erro ao excluir a música da playlist: ", error);
     }
@@ -155,6 +157,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
             </table>
           </div>
           <PesquisarMusica
+            criadorEmail={playlistClicada.criador?.email}
             playlist={playlistID}
             musicas={musicas}
             setMusicas={setMusicas}
