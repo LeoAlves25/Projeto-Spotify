@@ -154,7 +154,7 @@ const PlaylistEspecifica = ({ onMusicaClick }, props) => {
             </table>
           </div>
           <PesquisarMusica
-            playlist={playlist}
+            playlist={playlistID}
             musicas={musicas}
             setMusicas={setMusicas}
           />
